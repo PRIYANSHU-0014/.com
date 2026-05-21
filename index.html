@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Priyanshu Exploit - Premium APK Store</title>
+    
+    <title>Priyanshu Exploit - Premium Android MOD Apps & Gaming Tools</title>
+    <meta name="description" content="Priyanshu Exploit is the ultimate premium station for Android MOD APKs, Termux tools, Free Fire hacks, and BGMI GFX tools. Free download now!">
+    <meta name="keywords" content="Priyanshu Exploit, Priyanshu, Exploit, Premium APK, Termux Tools, Free Fire Mod, BGMI GFX, Android Hacks">
+    <meta name="author" content="Priyanshu">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="Priyanshu Exploit - Premium APK Store">
+    <meta property="og:description" content="Download latest Android MODs and Cyber Tools directly from Priyanshu Exploit.">
+    <meta property="og:type" content="website">
+
     <style>
         /* रूट वेरिएबल्स - डार्क मोड कलर्स */
         :root {
@@ -43,10 +53,14 @@
         #matrixCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; display: block; }
         [data-theme="light"] #matrixCanvas { display: none; }
 
-        /* 🔥 क्लीन हेडर - अब यहाँ कोई बटन या काउंटर नाम को नहीं दबाएगा */
+        /* 🔥 Live Notice Ticker */
+        .notice-ticker { background: #ff0000; color: #fff; font-size: 12px; font-weight: bold; padding: 5px 0; overflow: hidden; white-space: nowrap; box-shadow: 0 2px 10px rgba(255,0,0,0.5); z-index: 10; position: relative; }
+        .notice-ticker marquee { vertical-align: middle; }
+
+        /* हेडर */
         header { 
             background: var(--header-bg); 
-            padding: 40px 15px; 
+            padding: 35px 15px; 
             border-bottom: 3px solid #00ff00; 
             position: relative; 
             box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
@@ -59,73 +73,43 @@
             color: #00ff00; 
             text-shadow: 0 0 10px #00ff00; 
             letter-spacing: 3px;
-            word-wrap: break-word;
         }
-        header p { 
-            margin: 10px 0 0 0; 
-            color: var(--text-sub); 
-            font-size: 14px; 
-        }
+        header p { margin: 10px 0 0 0; color: var(--text-sub); font-size: 14px; }
 
-        /* 👑 कंट्रोल पैनल - काउंटर और थीम बटन अब हेडर के नीचे सुरक्षित हैं */
-        .control-panel {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 500px;
-            margin: 15px auto;
-            padding: 0 15px;
-        }
+        /* 👑 कंट्रोल पैनल */
+        .control-panel { display: flex; justify-content: space-between; align-items: center; max-width: 500px; margin: 15px auto; padding: 0 15px; }
 
-        /* 💰 कॉइन डिस्प्ले काउंटर */
-        .coin-display { 
-            background: #000; 
-            border: 2px solid #ffff00; 
-            color: #ffff00; 
-            padding: 8px 15px; 
-            font-weight: bold; 
-            border-radius: 20px; 
-            font-size: 14px; 
-            display: flex; 
-            align-items: center; 
-            gap: 5px; 
-            box-shadow: 0 0 10px #ffff00; 
-        }
+        /* 💰 कॉइन डिस्प्ले + VIP बैज */
+        .coin-box-wrapper { display: flex; flex-direction: column; gap: 5px; align-items: flex-start; }
+        .coin-display { background: #000; border: 2px solid #ffff00; color: #ffff00; padding: 6px 12px; font-weight: bold; border-radius: 20px; font-size: 13px; display: flex; align-items: center; gap: 5px; box-shadow: 0 0 10px #ffff00; }
+        .vip-badge { background: linear-gradient(45deg, #ff0055, #ffcc00); color: #fff; font-size: 10px; padding: 2px 8px; font-weight: bold; border-radius: 10px; text-shadow: 0 1px 2px #000; animation: pulse 1.5s infinite; border: 1px solid #fff; }
+
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); box-shadow: 0 0 10px #ff0055; } 100% { transform: scale(1); } }
 
         /* थीम स्विच बटन */
-        .theme-toggle-btn { 
-            background-color: #000; 
-            color: #00ff00; 
-            border: 2px solid #00ff00; 
-            padding: 8px 15px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            border-radius: 20px; 
-            font-size: 12px; 
-            transition: 0.2s; 
-            box-shadow: var(--neon-glow); 
-        }
+        .theme-toggle-btn { background-color: #000; color: #00ff00; border: 2px solid #00ff00; padding: 8px 15px; font-weight: bold; cursor: pointer; border-radius: 20px; font-size: 12px; transition: 0.2s; box-shadow: var(--neon-glow); }
         .theme-toggle-btn:hover { transform: scale(1.05); }
-        [data-theme="light"] .theme-toggle-btn { background-color: #ffffff; color: #000000; border-color: #000000; box-shadow: none; }
 
         .container { padding: 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
         .ad-box { margin: 20px auto; width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; background-color: var(--ad-bg); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
 
         /* सर्च बार */
         .search-container { margin: 20px auto; max-width: 500px; padding: 0 10px; position: relative; z-index: 2; }
-        .search-input { width: 100%; padding: 12px 20px; font-size: 16px; border: 2px solid var(--border-color); border-radius: 25px; background-color: var(--search-bg); color: var(--search-text); outline: none; transition: border-color 0.2s; box-sizing: border-box; box-shadow: var(--neon-glow); }
+        .search-input { width: 100%; padding: 12px 20px; font-size: 16px; border: 2px solid var(--border-color); border-radius: 25px; background-color: var(--search-bg); color: var(--search-text); outline: none; box-shadow: var(--neon-glow); box-sizing: border-box; }
 
         /* 🚀 REAL TOP POP TASK SECTION */
         .pop-container { max-width: 500px; margin: 20px auto; background-color: var(--bg-card); border: 2px solid #ffff00; border-radius: 12px; padding: 20px; box-shadow: 0 0 15px rgba(255, 255, 0, 0.3); text-align: center; backdrop-filter: blur(5px); }
         .pop-title { font-size: 18px; font-weight: bold; color: #ffff00; margin-bottom: 10px; text-shadow: 0 0 5px #ffff00; }
         .pop-desc { font-size: 13px; color: var(--text-sub); margin-bottom: 15px; }
         
-        /* बटन्स का ग्रुप */
         .pop-btn-group { display: flex; flex-direction: column; gap: 10px; align-items: center; }
         .pop-btn { width: 85%; background-color: #ffff00; color: #000; border: none; padding: 12px; font-size: 14px; font-weight: bold; border-radius: 25px; cursor: pointer; transition: 0.2s; box-shadow: 0 0 10px #ffff00; text-decoration: none; text-align: center; }
-        .pop-btn:hover { transform: scale(1.03); }
-        .claim-btn { width: 85%; background-color: #00ff00; color: #000; border: none; padding: 12px; font-size: 14px; font-weight: bold; border-radius: 25px; cursor: pointer; transition: 0.2s; box-shadow: 0 0 10px #00ff00; display: none; }
-        .claim-btn:hover { transform: scale(1.03); }
+        .claim-btn { width: 85%; background-color: #00ff00; color: #000; border: none; padding: 12px; font-size: 14px; font-weight: bold; border-radius: 25px; cursor: pointer; box-shadow: 0 0 10px #00ff00; display: none; }
+
+        /* Fake Antivirus Scan Progress Bar */
+        .scan-container { display: none; margin: 15px auto; max-width: 85%; background: #222; border-radius: 10px; padding: 8px; border: 1px solid #ff0000; }
+        .scan-text { font-size: 11px; color: #ff0000; font-weight: bold; margin-bottom: 5px; text-align: left; }
+        .scan-bar { height: 10px; background: #00ff00; width: 0%; border-radius: 5px; transition: width 0.1s linear; }
 
         h2.section-title { text-align: left; color: var(--text-main); border-left: 4px solid #ff0000; padding-left: 10px; margin-top: 30px; font-size: 20px; text-shadow: var(--neon-glow); }
 
@@ -141,19 +125,26 @@
         .app-cost { font-size: 12px; color: #ffff00; font-weight: bold; margin-bottom: 10px; }
 
         /* डाउनलोड + शेयर बटन्स */
-        .btn-group { display: flex; gap: 8px; margin-top: auto; }
-        .download-btn { flex: 2; background-color: #ff0000; color: #ffffff; padding: 8px 10px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; transition: background 0.2s; border: 1px solid #ff0000; box-shadow: 0 0 5px #ff0000; cursor: pointer; outline: none; }
-        .download-btn:hover { background-color: #cc0000; box-shadow: 0 0 15px #ff0000; }
+        .btn-group { display: flex; flex-direction: column; gap: 5px; margin-top: auto; }
+        .btn-row { display: flex; gap: 5px; }
         
-        .share-btn { flex: 1; background-color: #25D366; color: white; padding: 8px 5px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; transition: 0.2s; }
+        /* 💳 INSTAMOJO / RAZORPAY PAYMENT BUTTON STYLE */
+        .pay-btn { flex: 2; background: linear-gradient(45deg, #007bff, #00d2ff); color: #ffffff; padding: 8px 10px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; border: 1px solid #007bff; box-shadow: 0 0 5px #007bff; cursor: pointer; outline: none; transition: 0.2s; }
+        .pay-btn:hover { background: linear-gradient(45deg, #0056b3, #0099ff); box-shadow: 0 0 15px #00d2ff; }
+
+        .download-btn { flex: 2; background-color: #ff0000; color: #ffffff; padding: 8px 10px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; border: 1px solid #ff0000; box-shadow: 0 0 5px #ff0000; cursor: pointer; outline: none; }
+        .download-btn:hover { background-color: #cc0000; box-shadow: 0 0 15px #ff0000; }
+        .share-btn { flex: 1; background-color: #25D366; color: white; padding: 8px 5px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; }
 
         /* लाइव पोल */
         .poll-container { max-width: 500px; margin: 40px auto; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: left; box-shadow: var(--neon-glow); backdrop-filter: blur(5px); }
         .poll-question { font-size: 16px; font-weight: bold; margin-bottom: 15px; color: var(--text-main); }
         .poll-option { background-color: var(--poll-bg); border: 1px solid var(--border-color); padding: 12px; margin-bottom: 10px; border-radius: 8px; cursor: pointer; position: relative; overflow: hidden; transition: 0.2s; }
-        .poll-option:hover { border-color: #ff0000; box-shadow: 0 0 10px rgba(255,0,0,0.5); }
         .poll-bar { position: absolute; top: 0; left: 0; height: 100%; background-color: rgba(0, 255, 0, 0.25); width: 0%; transition: width 0.5s ease-in-out; }
         .poll-text { position: relative; z-index: 2; display: flex; justify-content: space-between; font-size: 14px; color: var(--text-main); }
+
+        /* 🟢 Live Users Counter Widget */
+        .live-counter-box { margin: 20px auto; max-width: 200px; background: rgba(0,0,0,0.8); border: 1px solid #00ff00; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; box-shadow: var(--neon-glow); }
 
         /* 💬 लाइव चैट बॉक्स */
         .chat-widget { position: fixed; bottom: 20px; left: 20px; z-index: 1000; text-align: left; }
@@ -172,13 +163,20 @@
 
     <canvas id="matrixCanvas"></canvas>
 
+    <div class="notice-ticker">
+        <marquee scrollamount="5">⚠️ NOTICE: Complete TOP POP Task daily to get unlimited 50+ coins! 🔥 New BGMI & Free Fire MOD Tools arriving tonight! Keep supporting Priyanshu Exploit! 🏴‍☠️</marquee>
+    </div>
+
     <header>
         <h1>🏴‍☠️ PRIYANSHU EXPLOIT 🏴‍☠️</h1>
         <p>Premium Android MOD Apps & Gaming Tools Station</p>
     </header>
 
     <div class="control-panel">
-        <div class="coin-display">🪙 Coins: <span id="userCoins">0</span></div>
+        <div class="coin-box-wrapper">
+            <div class="coin-display">🪙 Coins: <span id="userCoins">0</span></div>
+            <div class="vip-badge">⚡ ELITE HACKER</div>
+        </div>
         <button class="theme-toggle-btn" id="themeBtn">🌓 LIGHT MODE</button>
     </div>
 
@@ -196,7 +194,6 @@
                 <a href="https://www.highperformanceformat.com/6c0a601de70fd29478a1231dc4b383b3/invoke.js" target="_blank" class="pop-btn" onclick="startTask()">
                     🔥 1. COMPLETE TOP POP TASK
                 </a>
-                
                 <button id="claimBtn" class="claim-btn" onclick="claimCoins()">
                     🎁 2. CLAIM +50 COINS NOW
                 </button>
@@ -214,7 +211,7 @@
         
         <div class="apps-grid" id="appsGrid">
             
-            <div class="app-card">
+            <div class="app-card" id="card-app1">
                 <div>
                     <div class="app-icon">💻</div>
                     <div class="app-title">Termux Tool v1.0</div>
@@ -223,26 +220,38 @@
                     <div class="app-cost">💰 Cost: 30 Coins</div>
                 </div>
                 <div class="btn-group">
-                    <button class="download-btn" id="btn-app1" onclick="handlePurchase('app1', 30, 'https://raw.githubusercontent.com/Priyanshu31460014/exploit/main/tool.py', true)">UNLOCK APK</button>
-                    <a href="https://api.whatsapp.com/send?text=Hey! Check out Termux Tool v1.0 on Priyanshu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
+                    <div class="scan-container" id="scan-app1">
+                        <div class="scan-text" id="scan-text-app1">🔍 Scanning file...</div>
+                        <div class="scan-bar" id="bar-app1"></div>
+                    </div>
+                    <div class="btn-row">
+                        <button class="download-btn" id="btn-app1" onclick="handlePurchase('app1', 30, 'https://raw.githubusercontent.com/Priyanshu31460014/exploit/main/tool.py', true)">UNLOCK APK</button>
+                        <a href="https://api.whatsapp.com/send?text=Hey! Check out Termux Tool v1.0 on Priyanshu Exploit" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" id="card-app2">
                 <div>
-                    <div class="app-icon">🔥</div>
-                    <div class="app-title">Free Fire Zone</div>
-                    <div class="app-category">Gaming</div>
-                    <div class="app-stats">⭐ 4.8 | 📥 45K+</div>
-                    <div class="app-cost">💰 Cost: 50 Coins</div>
+                    <div class="app-icon">👑</div>
+                    <div class="app-title">FF VIP Mod Pro</div>
+                    <div class="app-category">Premium Gaming</div>
+                    <div class="app-stats">⭐ 5.0 | Best Seller</div>
+                    <div class="app-cost" style="color: #00d2ff;">💳 Price: ₹49 Only</div>
                 </div>
                 <div class="btn-group">
-                    <button class="download-btn" id="btn-app2" onclick="handlePurchase('app2', 50, '#', false)">UNLOCK APK</button>
-                    <a href="https://api.whatsapp.com/send?text=Hey! Check out Free Fire Zone on Priyanshu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
+                    <div class="scan-container" id="scan-app2">
+                        <div class="scan-text" id="scan-text-app2">🔍 Initializing Secure Gateway...</div>
+                        <div class="scan-bar" id="bar-app2"></div>
+                    </div>
+                    <div class="btn-row">
+                        <a href="#" target="_blank" class="pay-btn" onclick="playBeep()">BUY VIA UPI</a>
+                        <a href="https://api.whatsapp.com/send?text=Get FF VIP Mod Pro on Priyanshu Exploit" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" id="card-app3">
                 <div>
                     <div class="app-icon">🎯</div>
                     <div class="app-title">BGMI GFX Mod</div>
@@ -251,12 +260,18 @@
                     <div class="app-cost">💰 Cost: 40 Coins</div>
                 </div>
                 <div class="btn-group">
-                    <button class="download-btn" id="btn-app3" onclick="handlePurchase('app3', 40, '#', false)">UNLOCK APK</button>
-                    <a href="https://api.whatsapp.com/send?text=Hey! Check out BGMI GFX Mod on Priyanshu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
+                    <div class="scan-container" id="scan-app3">
+                        <div class="scan-text" id="scan-text-app3">🔍 Scanning file...</div>
+                        <div class="scan-bar" id="bar-app3"></div>
+                    </div>
+                    <div class="btn-row">
+                        <button class="download-btn" id="btn-app3" onclick="handlePurchase('app3', 40, '#', false)">UNLOCK APK</button>
+                        <a href="https://api.whatsapp.com/send?text=Hey! Check out BGMI GFX Mod on Priyanshu Exploit" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" id="card-app4">
                 <div>
                     <div class="app-icon">🥷</div>
                     <div class="app-title">Anime Combat</div>
@@ -265,8 +280,14 @@
                     <div class="app-cost">💰 Cost: 20 Coins</div>
                 </div>
                 <div class="btn-group">
-                    <button class="download-btn" id="btn-app4" onclick="handlePurchase('app4', 20, '#', false)">UNLOCK APK</button>
-                    <a href="https://api.whatsapp.com/send?text=Hey! Check out Anime Combat on Priyanshu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
+                    <div class="scan-container" id="scan-app4">
+                        <div class="scan-text" id="scan-text-app4">🔍 Scanning file...</div>
+                        <div class="scan-bar" id="bar-app4"></div>
+                    </div>
+                    <div class="btn-row">
+                        <button class="download-btn" id="btn-app4" onclick="handlePurchase('app4', 20, '#', false)">UNLOCK APK</button>
+                        <a href="https://api.whatsapp.com/send?text=Hey! Check out Anime Combat on Priyanshu Exploit" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
+                    </div>
                 </div>
             </div>
 
@@ -289,6 +310,10 @@
                 <div class="poll-bar" id="bar3"></div>
                 <div class="poll-text"><span>C) Python Auto-Tool</span><span id="percent3">0%</span></div>
             </div>
+        </div>
+
+        <div class="live-counter-box">
+            🟢 Live Traffic: <span id="liveCount">124</span> online
         </div>
 
         <div class="ad-box" style="margin-top: 40px;">
@@ -327,18 +352,15 @@
                 osc.frequency.setValueAtTime(800, ctx.currentTime);
                 gain.gain.setValueAtTime(0.05, ctx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
-                osc.connect(gain);
-                gain.connect(ctx.destination);
-                osc.start();
-                osc.stop(ctx.currentTime + 0.1);
+                osc.connect(gain); gain.connect(ctx.destination);
+                osc.start(); osc.stop(ctx.currentTime + 0.1);
             } catch(e) {}
         }
 
-        // 🌌 २. मैट्रिक्स रेन कोड एनीमेशन
+        // 🌌 २. मैट्रिक्स रेन एनीमेशन
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth; canvas.height = window.innerHeight;
         const alphabet = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&";
         const fontSize = 16;
         const columns = canvas.width / fontSize;
@@ -357,46 +379,37 @@
             }
         }
         setInterval(drawMatrix, 30);
+        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
 
-        window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        });
+        // 🟢 ३. Live Fake Traffic Counter Logic
+        setInterval(() => {
+            let currentUsers = Math.floor(Math.random() * (160 - 110 + 1)) + 110;
+            document.getElementById('liveCount').textContent = currentUsers;
+        }, 4000);
 
-        // 💰 ३. असली कॉइन और टास्क मैनेजमेंट सिस्टम
+        // 💰 ४. कॉइन और टास्क मैनेजमेंट सिस्टम
         let coins = parseInt(localStorage.getItem('priyanshu_coins')) || 0;
         let purchasedApps = JSON.parse(localStorage.getItem('priyanshu_purchased')) || [];
         let isTaskStarted = sessionStorage.getItem('task_started') || "false";
         
         document.getElementById('userCoins').textContent = coins;
 
-        // पेज लोड होते ही चेक करना कि क्या यूजर टास्क शुरू करके आया है
-        if (isTaskStarted === "true") {
-            document.getElementById('claimBtn').style.display = 'block';
-        }
+        if (isTaskStarted === "true") { document.getElementById('claimBtn').style.display = 'block'; }
 
-        // असली टास्क शुरू करना (यह यूजर को एडस्टेरा लिंक पर भेजेगा)
         function startTask() {
             playBeep();
             sessionStorage.setItem('task_started', "true");
-            // २ सेकंड बाद क्लेम बटन स्क्रीन पर दिखा देंगे
-            setTimeout(() => {
-                document.getElementById('claimBtn').style.display = 'block';
-            }, 2000);
+            setTimeout(() => { document.getElementById('claimBtn').style.display = 'block'; }, 2000);
         }
 
-        // टास्क पूरा करने के बाद कॉइन क्लेम करना
         function claimCoins() {
             playBeep();
             if (sessionStorage.getItem('task_started') === "true") {
                 coins += 50;
                 localStorage.setItem('priyanshu_coins', coins);
                 document.getElementById('userCoins').textContent = coins;
-                
-                // टास्क स्टेट रीसेट करना ताकि दोबारा क्लिक करना पड़े
                 sessionStorage.removeItem('task_started');
                 document.getElementById('claimBtn').style.display = 'none';
-                
                 alert("🎉 कड़क! टास्क कम्प्लीट करने के लिए आपको +50 कॉइन्स मिल गए हैं।");
                 updateAppButtons();
             } else {
@@ -404,15 +417,11 @@
             }
         }
 
-        // परचेज़ या डाउनलोड हैंडलर
+        // 🛡️ ५. परचेज़ + Fake Antivirus Safe Download Progress Bar Logic
         function handlePurchase(appId, cost, downloadUrl, isRealFile) {
             playBeep();
             if (purchasedApps.includes(appId)) {
-                if (isRealFile) {
-                    window.location.href = downloadUrl;
-                } else {
-                    alert("🚀 आपका प्रीमियम ऐप अनलॉक है! डाउनलोड शुरू हो रहा है...");
-                }
+                runDownloadScan(appId, downloadUrl, isRealFile);
                 return;
             }
 
@@ -422,39 +431,54 @@
                     purchasedApps.push(appId);
                     localStorage.setItem('priyanshu_coins', coins);
                     localStorage.setItem('priyanshu_purchased', JSON.stringify(purchasedApps));
-                    
                     document.getElementById('userCoins').textContent = coins;
-                    alert("🔓 बधाई हो! ऐप सफलतापूर्वक अनलॉक हो गया।");
                     updateAppButtons();
+                    runDownloadScan(appId, downloadUrl, isRealFile);
                 }
             } else {
                 alert("❌ ओहो भाई! कॉइन्स कम हैं। ऊपर 'TOP POP TASK' पूरा करके पहले कॉइन्स क्लेम कर लो!");
             }
         }
 
-        // बटन्स स्टेटस अपडेट
-        function updateAppButtons() {
-            const apps = [
-                { id: 'app1', text: 'DOWNLOAD APK' },
-                { id: 'app2', text: 'DOWNLOAD APK' },
-                { id: 'app3', text: 'DOWNLOAD APK' },
-                { id: 'app4', text: 'DOWNLOAD APK' }
-            ];
+        function runDownloadScan(appId, downloadUrl, isRealFile) {
+            const scanBox = document.getElementById(`scan-${appId}`);
+            const scanBar = document.getElementById(`bar-${appId}`);
+            const scanText = document.getElementById(`scan-text-${appId}`);
+            
+            scanBox.style.display = 'block';
+            let progress = 0;
+            
+            let interval = setInterval(() => {
+                progress += 5;
+                scanBar.style.width = progress + '%';
+                if(progress === 30) scanText.textContent = "🛡️ Verifying signatures...";
+                if(progress === 60) scanText.textContent = "⚙️ Injecting safe patch...";
+                if(progress === 90) scanText.textContent = "✅ Clean! Starting Download...";
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        scanBox.style.display = 'none';
+                        scanBar.style.width = '0%';
+                        scanText.textContent = "🔍 Scanning file...";
+                        if (isRealFile) { window.location.href = downloadUrl; } else { alert("🚀 आपका मोड फाइल सफलतापूर्वक डाउनलोड हो गया!"); }
+                    }, 800);
+                }
+            }, 100);
+        }
 
-            apps.forEach(app => {
-                const btn = document.getElementById(`btn-${app.id}`);
-                if (purchasedApps.includes(app.id)) {
-                    btn.textContent = app.text;
-                    btn.style.backgroundColor = '#00ff00';
-                    btn.style.borderColor = '#00ff00';
-                    btn.style.color = '#000';
-                    btn.style.boxShadow = '0 0 15px #00ff00';
-                } else {
-                    btn.textContent = 'UNLOCK APK';
-                    btn.style.backgroundColor = '#ff0000';
-                    btn.style.borderColor = '#ff0000';
-                    btn.style.color = '#fff';
-                    btn.style.boxShadow = '0 0 5px #ff0000';
+        function updateAppButtons() {
+            const apps = ['app1', 'app3', 'app4'];
+            apps.forEach(id => {
+                const btn = document.getElementById(`btn-${id}`);
+                if (btn) {
+                    if (purchasedApps.includes(id)) {
+                        btn.textContent = 'DOWNLOAD APK';
+                        btn.style.backgroundColor = '#00ff00'; btn.style.borderColor = '#00ff00'; btn.style.color = '#000'; btn.style.boxShadow = '0 0 15px #00ff00';
+                    } else {
+                        btn.textContent = 'UNLOCK APK';
+                        btn.style.backgroundColor = '#ff0000'; btn.style.borderColor = '#ff0000'; btn.style.color = '#fff'; btn.style.boxShadow = '0 0 5px #ff0000';
+                    }
                 }
             });
         }
@@ -476,20 +500,18 @@
 
         // लाइव सर्च फ़िल्टर
         const searchInput = document.getElementById('searchInput');
-        const appCards = document.querySelectorAll('.app-card');
         searchInput.addEventListener('input', (e) => {
             const searchText = e.target.value.toLowerCase().trim();
-            appCards.forEach(card => {
+            document.querySelectorAll('.app-card').forEach(card => {
                 const appTitle = card.querySelector('.app-title').textContent.toLowerCase();
-                if (appTitle.includes(searchText)) { card.style.display = 'flex'; } else { card.style.display = 'none'; }
+                card.style.display = appTitle.includes(searchText) ? 'flex' : 'none';
             });
         });
 
         // वोटिंग पोल लॉजिक
         let votes = [32, 54, 21];
         function vote(optionIndex) {
-            playBeep();
-            votes[optionIndex - 1] += 1;
+            playBeep(); votes[optionIndex - 1] += 1;
             const totalVotes = votes[0] + votes[1] + votes[2];
             for(let i = 1; i <= 3; i++) {
                 const percent = Math.round((votes[i - 1] / totalVotes) * 100);
@@ -502,18 +524,13 @@
         function toggleChat() { document.getElementById('chatBox').style.display = (document.getElementById('chatBox').style.display === 'flex') ? 'none' : 'flex'; }
         function handleChat(event) {
             if (event.key === 'Enter' && event.target.value.trim() !== "") {
-                playBeep();
-                const txt = event.target.value;
-                event.target.value = "";
+                playBeep(); const txt = event.target.value; event.target.value = "";
                 const chatMessages = document.getElementById('chatMessages');
-                const uMsg = document.createElement('div');
-                uMsg.className = 'msg'; uMsg.style.alignSelf = 'flex-end'; uMsg.style.backgroundColor = '#00ff00'; uMsg.style.color = '#000'; uMsg.textContent = txt;
+                const uMsg = document.createElement('div'); uMsg.className = 'msg'; uMsg.style.alignSelf = 'flex-end'; uMsg.style.backgroundColor = '#00ff00'; uMsg.style.color = '#000'; uMsg.textContent = txt;
                 chatMessages.appendChild(uMsg);
                 setTimeout(() => {
-                    const sMsg = document.createElement('div');
-                    sMsg.className = 'msg system'; sMsg.textContent = "Complete tasks to earn coins, bro! Priyanshu Admin is live.";
-                    chatMessages.appendChild(sMsg); playBeep();
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    const sMsg = document.createElement('div'); sMsg.className = 'msg system'; sMsg.textContent = "Complete tasks to earn coins, bro! Priyanshu Admin is live.";
+                    chatMessages.appendChild(sMsg); playBeep(); chatMessages.scrollTop = chatMessages.scrollHeight;
                 }, 1000);
                 chatMessages.scrollTop = chatMessages.scrollHeight;
             }
