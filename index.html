@@ -1,5 +1,4 @@
-
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hi">
 <head>
     <meta charset="UTF-8">
@@ -17,6 +16,7 @@
             --ad-bg: #1a1a1a;
             --search-bg: #2a2a2a;
             --search-text: #ffffff;
+            --poll-bg: #222;
         }
 
         /* लाइट मोड कलर्स */
@@ -30,6 +30,7 @@
             --ad-bg: #ebeeec;
             --search-bg: #ffffff;
             --search-text: #000000;
+            --poll-bg: #ebeeec;
         }
         
         body { background-color: var(--bg-body); color: var(--text-main); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; text-align: center; transition: background 0.3s, color 0.3s; }
@@ -56,18 +57,29 @@
 
         /* ग्रिड और ऐप्स स्टाइल */
         .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; margin-top: 20px; }
-        .app-card { background-color: var(--bg-card); border-radius: 12px; padding: 15px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.2s, box-shadow 0.2s; }
+        .app-card { background-color: var(--bg-card); border-radius: 12px; padding: 15px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: space-between; }
         .app-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2); }
         
         .app-icon { width: 80px; height: 80px; background: linear-gradient(45deg, #333, #555); margin: 0 auto 12px auto; border-radius: 18px; display: flex; justify-content: center; align-items: center; font-size: 32px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
         .app-title { font-size: 15px; font-weight: bold; margin: 5px 0; color: var(--text-main); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .app-category { font-size: 12px; color: #00ff00; margin-bottom: 5px; font-weight: 500; }
-        
-        /* रेटिंग और काउंटर */
         .app-stats { font-size: 11px; color: var(--text-sub); margin-bottom: 12px; }
 
-        .download-btn { background-color: #ff0000; color: #ffffff; padding: 8px 15px; text-decoration: none; font-size: 12px; font-weight: bold; border-radius: 6px; display: block; transition: background 0.2s; }
-        .download-btn:hover { background-color: #cc0000; box-shadow: 0 0 10px #ff0000; }
+        /* बटन्स ग्रुप (Download + Share) */
+        .btn-group { display: flex; gap: 8px; margin-top: auto; }
+        .download-btn { flex: 2; background-color: #ff0000; color: #ffffff; padding: 8px 10px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; transition: background 0.2s; }
+        .download-btn:hover { background-color: #cc0000; box-shadow: 0 0 8px #ff0000; }
+        
+        .share-btn { flex: 1; background-color: #25D366; color: white; padding: 8px 5px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; transition: 0.2s; }
+        .share-btn:hover { background-color: #128C7E; transform: scale(1.05); }
+
+        /* लाइव पोल / वोटिंग सेक्शन स्टाइल */
+        .poll-container { max-width: 500px; margin: 40px auto; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: left; }
+        .poll-question { font-size: 16px; font-weight: bold; margin-bottom: 15px; color: var(--text-main); }
+        .poll-option { background-color: var(--poll-bg); border: 1px solid var(--border-color); padding: 12px; margin-bottom: 10px; border-radius: 8px; cursor: pointer; position: relative; overflow: hidden; transition: 0.2s; }
+        .poll-option:hover { border-color: #00ff00; }
+        .poll-bar { position: absolute; top: 0; left: 0; height: 100%; background-color: rgba(0, 255, 0, 0.15); width: 0%; transition: width 0.5s ease-in-out; }
+        .poll-text { position: relative; z-index: 2; display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; }
     </style>
 </head>
 <body>
@@ -102,40 +114,79 @@
         <div class="apps-grid" id="appsGrid">
             
             <div class="app-card">
-                <div class="app-icon" style="background: linear-gradient(45deg, #111, #222); border: 1px solid #00ff00; color: #00ff00;">💻</div>
-                <div class="app-title">Termux Tool v1.0</div>
-                <div class="app-category">Tools / Tech</div>
-                <div class="app-stats">⭐ 4.9 | 📥 5K+</div>
-                <a href="https://raw.githubusercontent.com/Priyanshu31460014/exploit/main/tool.py" class="download-btn" download="tool.py">DOWNLOAD</a>
+                <div>
+                    <div class="app-icon" style="background: linear-gradient(45deg, #111, #222); border: 1px solid #00ff00; color: #00ff00;">💻</div>
+                    <div class="app-title">Termux Tool v1.0</div>
+                    <div class="app-category">Tools / Tech</div>
+                    <div class="app-stats">⭐ 4.9 | 📥 5K+</div>
+                </div>
+                <div class="btn-group">
+                    <a href="https://raw.githubusercontent.com/Priyanshu31460014/exploit/main/tool.py" class="download-btn" download="tool.py">DOWNLOAD</a>
+                    <a href="https://api.whatsapp.com/send?text=Hey! Check out Termux Tool v1.0 on Priyanhsu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn">🔗 WA</a>
+                </div>
             </div>
 
             <div class="app-card">
-                <div class="app-icon">🔥</div>
-                <div class="app-title">Free Fire Zone</div>
-                <div class="app-category">Gaming</div>
-                <div class="app-stats">⭐ 4.8 | 📥 45K+</div>
-                <a href="#" class="download-btn">DOWNLOAD</a>
+                <div>
+                    <div class="app-icon">🔥</div>
+                    <div class="app-title">Free Fire Zone</div>
+                    <div class="app-category">Gaming</div>
+                    <div class="app-stats">⭐ 4.8 | 📥 45K+</div>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="download-btn">DOWNLOAD</a>
+                    <a href="https://api.whatsapp.com/send?text=Hey! Check out Free Fire Zone on Priyanhsu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn">🔗 WA</a>
+                </div>
             </div>
 
             <div class="app-card">
-                <div class="app-icon">🎯</div>
-                <div class="app-title">BGMI GFX Mod</div>
-                <div class="app-category">Gaming</div>
-                <div class="app-stats">⭐ 4.7 | 📥 12K+</div>
-                <a href="#" class="download-btn">DOWNLOAD</a>
+                <div>
+                    <div class="app-icon">🎯</div>
+                    <div class="app-title">BGMI GFX Mod</div>
+                    <div class="app-category">Gaming</div>
+                    <div class="app-stats">⭐ 4.7 | 📥 12K+</div>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="download-btn">DOWNLOAD</a>
+                    <a href="https://api.whatsapp.com/send?text=Hey! Check out BGMI GFX Mod on Priyanhsu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn">🔗 WA</a>
+                </div>
             </div>
 
             <div class="app-card">
-                <div class="app-icon">🥷</div>
-                <div class="app-title">Anime Combat</div>
-                <div class="app-category">Simulator</div>
-                <div class="app-stats">⭐ 4.9 | 📥 8K+</div>
-                <a href="#" class="download-btn">DOWNLOAD</a>
+                <div>
+                    <div class="app-icon">🥷</div>
+                    <div class="app-title">Anime Combat</div>
+                    <div class="app-category">Simulator</div>
+                    <div class="app-stats">⭐ 4.9 | 📥 8K+</div>
+                </div>
+                <div class="btn-group">
+                    <a href="#" class="download-btn">DOWNLOAD</a>
+                    <a href="https://api.whatsapp.com/send?text=Hey! Check out Anime Combat on Priyanhsu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn">🔗 WA</a>
+                </div>
             </div>
 
         </div>
 
-        <div class="ad-box" style="margin-top: 50px;">
+        <div class="poll-container">
+            <div class="poll-question">📊 आपको अगला कौन सा टूल चाहिए? (Vote Now)</div>
+            
+            <div class="poll-option" onclick="vote(1)">
+                <div class="poll-bar" id="bar1"></div>
+                <div class="poll-text"><span>A) Free Fire GFX Hack</span><span id="percent1">0%</span></div>
+            </div>
+            
+            <div class="poll-option" onclick="vote(2)">
+                <div class="poll-bar" id="bar2"></div>
+                <div class="poll-text"><span>B) New Termux Script</span><span id="percent2">0%</span></div>
+            </div>
+            
+            <div class="poll-option" onclick="vote(3)">
+                <div class="poll-bar" id="bar3"></div>
+                <div class="poll-text"><span>C) Python Auto-Tool</span><span id="percent3">0%</span></div>
+            </div>
+        </div>
+
+        <div class="ad-box" style="margin-top: 40px;">
             <script type="text/javascript">
                 atOptions = {
                     'key' : '6c0a601de70fd29478a1231dc4b383b3',
@@ -164,27 +215,35 @@
             }
         });
 
-        // 2. लाइव सर्च बार स्क्रिप्ट (Real-time Filtering)
+        // 2. लाइव सर्च बार स्क्रिप्ट
         const searchInput = document.getElementById('searchInput');
         const appCards = document.querySelectorAll('.app-card');
-
         searchInput.addEventListener('input', (e) => {
             const searchText = e.target.value.toLowerCase().trim();
-            
             appCards.forEach(card => {
                 const appTitle = card.querySelector('.app-title').textContent.toLowerCase();
                 const appCategory = card.querySelector('.app-category').textContent.toLowerCase();
-                
-                // अगर सर्च टेक्स्ट टाइटल या कैटेगरी से मैच करता है तो दिखाओ, नहीं तो छुपाओ
                 if (appTitle.includes(searchText) || appCategory.includes(searchText)) {
-                    card.style.display = 'block';
+                    card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
                 }
             });
         });
+
+        // 3. जावास्क्रिप्ट लाइव पोल लॉजिक (स्मार्ट वोटिंग)
+        let votes = [24, 42, 18]; // डिफ़ॉल्ट नकली शुरुआती वोट्स संख्या
+        function vote(optionIndex) {
+            votes[optionIndex - 1] += 1; // यूजर के क्लिक पर वोट बढ़ाएं
+            const totalVotes = votes[0] + votes[1] + votes[2];
+            
+            for(let i = 1; i <= 3; i++) {
+                const percent = Math.round((votes[i - 1] / totalVotes) * 100);
+                document.getElementById(`percent${i}`).textContent = percent + '%';
+                document.getElementById(`bar${i}`).style.width = percent + '%';
+            }
+        }
     </script>
 
 </body>
 </html>
-         
