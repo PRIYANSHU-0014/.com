@@ -7,17 +7,18 @@
     <style>
         /* रूट वेरिएबल्स - डार्क मोड कलर्स */
         :root {
-            --bg-body: #121212;
-            --bg-card: #1e1e1e;
-            --text-main: #ffffff;
-            --text-sub: #aaa;
-            --border-color: #2d2d2d;
-            --header-bg: linear-gradient(135deg, #1f1f1f, #000000);
-            --ad-bg: #1a1a1a;
-            --search-bg: #2a2a2a;
-            --search-text: #ffffff;
-            --poll-bg: #222;
-            --chat-bg: #1e1e1e;
+            --bg-body: #0a0a0a;
+            --bg-card: rgba(20, 20, 20, 0.85);
+            --text-main: #00ff00;
+            --text-sub: #888;
+            --border-color: #00ff00;
+            --header-bg: linear-gradient(135deg, #0f0f0f, #000000);
+            --ad-bg: #111111;
+            --search-bg: #151515;
+            --search-text: #00ff00;
+            --poll-bg: #151515;
+            --chat-bg: #111111;
+            --neon-glow: 0 0 10px #00ff00;
         }
 
         /* लाइट मोड कलर्स */
@@ -33,80 +34,83 @@
             --search-text: #000000;
             --poll-bg: #ebeeec;
             --chat-bg: #ffffff;
+            --neon-glow: none;
         }
         
-        body { background-color: var(--bg-body); color: var(--text-main); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; text-align: center; transition: background 0.3s, color 0.3s; position: relative; min-height: 100vh; }
+        body { background-color: var(--bg-body); color: var(--text-main); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; text-align: center; transition: background 0.3s, color 0.3s; position: relative; min-height: 100vh; overflow-x: hidden; }
         
-        header { background: var(--header-bg); padding: 30px 20px; border-bottom: 3px solid #00ff00; position: relative; }
-        header h1 { margin: 0; font-size: 28px; color: #00ff00; text-shadow: 0 0 10px #00ff00; letter-spacing: 2px; }
+        /* 🌌 मैट्रिक्स बैकग्राउंड कैनवास */
+        #matrixCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; display: block; }
+        [data-theme="light"] #matrixCanvas { display: none; }
+
+        header { background: var(--header-bg); padding: 30px 20px; border-bottom: 3px solid #00ff00; position: relative; box-shadow: var(--neon-glow); }
+        header h1 { margin: 0; font-size: 28px; color: #00ff00; text-shadow: var(--neon-glow); letter-spacing: 3px; }
         [data-theme="light"] header h1 { color: #ffffff; text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
         header p { margin: 10px 0 0 0; color: var(--text-sub); font-size: 14px; }
 
         /* थीम स्विच बटन */
-        .theme-toggle-btn { position: absolute; top: 20px; right: 20px; background-color: #333; color: #fff; border: 2px solid #00ff00; padding: 8px 15px; font-weight: bold; cursor: pointer; border-radius: 20px; font-size: 12px; transition: 0.2s; z-index: 10; }
+        .theme-toggle-btn { position: absolute; top: 20px; right: 20px; background-color: #000; color: #00ff00; border: 2px solid #00ff00; padding: 8px 15px; font-weight: bold; cursor: pointer; border-radius: 20px; font-size: 12px; transition: 0.2s; z-index: 10; box-shadow: var(--neon-glow); }
         .theme-toggle-btn:hover { transform: scale(1.05); }
-        [data-theme="light"] .theme-toggle-btn { background-color: #ffffff; color: #000000; border-color: #000000; }
+        [data-theme="light"] .theme-toggle-btn { background-color: #ffffff; color: #000000; border-color: #000000; box-shadow: none; }
 
-        .container { padding: 20px; max-width: 1200px; margin: 0 auto; }
-        .ad-box { margin: 20px auto; width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; background-color: var(--ad-bg); border-radius: 8px; overflow: hidden; }
+        .container { padding: 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+        .ad-box { margin: 20px auto; width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; background-color: var(--ad-bg); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
 
         /* सर्च बार */
-        .search-container { margin: 20px auto; max-width: 500px; padding: 0 10px; }
-        .search-input { width: 100%; padding: 12px 20px; font-size: 16px; border: 2px solid var(--border-color); border-radius: 25px; background-color: var(--search-bg); color: var(--search-text); outline: none; transition: border-color 0.2s; box-sizing: border-box; }
-        .search-input:focus { border-color: #00ff00; }
+        .search-container { margin: 20px auto; max-width: 500px; padding: 0 10px; position: relative; z-index: 2; }
+        .search-input { width: 100%; padding: 12px 20px; font-size: 16px; border: 2px solid var(--border-color); border-radius: 25px; background-color: var(--search-bg); color: var(--search-text); outline: none; transition: border-color 0.2s; box-sizing: border-box; box-shadow: var(--neon-glow); }
 
-        h2.section-title { text-align: left; color: var(--text-main); border-left: 4px solid #ff0000; padding-left: 10px; margin-top: 30px; font-size: 20px; }
+        h2.section-title { text-align: left; color: var(--text-main); border-left: 4px solid #ff0000; padding-left: 10px; margin-top: 30px; font-size: 20px; text-shadow: var(--neon-glow); }
 
-        /* ग्रिड और ऐप्स */
+        /* ग्रिड और ऐप्स कार्ड */
         .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; margin-top: 20px; }
-        .app-card { background-color: var(--bg-card); border-radius: 12px; padding: 15px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: space-between; }
-        .app-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0, 255, 0, 0.2); }
+        .app-card { background-color: var(--bg-card); border-radius: 12px; padding: 15px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(5px); }
+        .app-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px #00ff00; }
         
-        .app-icon { width: 80px; height: 80px; background: linear-gradient(45deg, #333, #555); margin: 0 auto 12px auto; border-radius: 18px; display: flex; justify-content: center; align-items: center; font-size: 32px; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+        .app-icon { width: 80px; height: 80px; background: #000; margin: 0 auto 12px auto; border-radius: 18px; display: flex; justify-content: center; align-items: center; font-size: 32px; border: 2px solid var(--border-color); box-shadow: var(--neon-glow); }
         .app-title { font-size: 15px; font-weight: bold; margin: 5px 0; color: var(--text-main); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .app-category { font-size: 12px; color: #00ff00; margin-bottom: 5px; font-weight: 500; }
+        .app-category { font-size: 12px; color: #ff0000; margin-bottom: 5px; font-weight: 500; }
         .app-stats { font-size: 11px; color: var(--text-sub); margin-bottom: 12px; }
 
         /* डाउनलोड + शेयर बटन्स */
         .btn-group { display: flex; gap: 8px; margin-top: auto; }
-        .download-btn { flex: 2; background-color: #ff0000; color: #ffffff; padding: 8px 10px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; transition: background 0.2s; }
-        .download-btn:hover { background-color: #cc0000; box-shadow: 0 0 8px #ff0000; }
+        .download-btn { flex: 2; background-color: #ff0000; color: #ffffff; padding: 8px 10px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; transition: background 0.2s; border: 1px solid #ff0000; box-shadow: 0 0 5px #ff0000; }
+        .download-btn:hover { background-color: #cc0000; box-shadow: 0 0 15px #ff0000; }
         
         .share-btn { flex: 1; background-color: #25D366; color: white; padding: 8px 5px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; transition: 0.2s; }
-        .share-btn:hover { background-color: #128C7E; transform: scale(1.05); }
 
         /* लाइव पोल */
-        .poll-container { max-width: 500px; margin: 40px auto; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: left; }
+        .poll-container { max-width: 500px; margin: 40px auto; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: left; box-shadow: var(--neon-glow); backdrop-filter: blur(5px); }
         .poll-question { font-size: 16px; font-weight: bold; margin-bottom: 15px; color: var(--text-main); }
         .poll-option { background-color: var(--poll-bg); border: 1px solid var(--border-color); padding: 12px; margin-bottom: 10px; border-radius: 8px; cursor: pointer; position: relative; overflow: hidden; transition: 0.2s; }
-        .poll-option:hover { border-color: #00ff00; }
-        .poll-bar { position: absolute; top: 0; left: 0; height: 100%; background-color: rgba(0, 255, 0, 0.15); width: 0%; transition: width 0.5s ease-in-out; }
-        .poll-text { position: relative; z-index: 2; display: flex; justify-content: space-between; font-size: 14px; font-weight: 500; }
+        .poll-option:hover { border-color: #ff0000; box-shadow: 0 0 10px rgba(255,0,0,0.5); }
+        .poll-bar { position: absolute; top: 0; left: 0; height: 100%; background-color: rgba(0, 255, 0, 0.25); width: 0%; transition: width 0.5s ease-in-out; }
+        .poll-text { position: relative; z-index: 2; display: flex; justify-content: space-between; font-size: 14px; color: var(--text-main); }
 
-        /* 🎁 लकी स्पिन व्हील स्टाइल */
-        .spin-container { max-width: 400px; margin: 40px auto; background-color: var(--bg-card); border: 2px dashed #00ff00; border-radius: 12px; padding: 20px; }
+        /* 🎁 लकी स्पिन व्हील */
+        .spin-container { max-width: 400px; margin: 40px auto; background-color: var(--bg-card); border: 2px dashed #00ff00; border-radius: 12px; padding: 20px; box-shadow: var(--neon-glow); backdrop-filter: blur(5px); }
         .spin-title { font-size: 16px; font-weight: bold; color: #00ff00; margin-bottom: 15px; }
-        .wheel-box { width: 150px; height: 150px; border: 5px solid var(--text-main); border-radius: 50%; margin: 0 auto 15px auto; display: flex; justify-content: center; align-items: center; font-size: 40px; background: conic-gradient(#ff0000 0% 25%, #00ff00 25% 50%, #0000ff 50% 75%, #ffff00 75% 100%); transition: transform 3s cubic-bezier(0.1, 0.8, 0.3, 1); }
-        .spin-btn { background-color: #00ff00; color: #000; border: none; padding: 10px 25px; font-size: 14px; font-weight: bold; border-radius: 20px; cursor: pointer; transition: 0.2s; }
-        .spin-btn:hover { transform: scale(1.05); box-shadow: 0 0 10px #00ff00; }
+        .wheel-box { width: 150px; height: 150px; border: 5px solid #00ff00; border-radius: 50%; margin: 0 auto 15px auto; display: flex; justify-content: center; align-items: center; font-size: 40px; background: conic-gradient(#ff0000 0% 25%, #00ff00 25% 50%, #0000ff 50% 75%, #ffff00 75% 100%); transition: transform 3s cubic-bezier(0.1, 0.8, 0.3, 1); box-shadow: var(--neon-glow); }
+        .spin-btn { background-color: #00ff00; color: #000; border: none; padding: 10px 25px; font-size: 14px; font-weight: bold; border-radius: 20px; cursor: pointer; transition: 0.2s; box-shadow: var(--neon-glow); }
+        .spin-btn:hover { transform: scale(1.05); }
         .spin-result { margin-top: 10px; font-weight: bold; font-size: 14px; color: #ff0000; }
 
-        /* 💬 लाइव चैट बॉक्स स्टाइल */
+        /* 💬 लाइव चैट बॉक्स */
         .chat-widget { position: fixed; bottom: 20px; left: 20px; z-index: 1000; text-align: left; }
-        .chat-btn { width: 55px; height: 55px; background-color: #00ff00; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 26px; cursor: pointer; box-shadow: 0 4px 10px rgba(0,255,0,0.3); transition: 0.2s; }
-        .chat-btn:hover { transform: scale(1.1); }
-        .chat-box { width: 280px; height: 350px; background-color: var(--chat-bg); border: 2px solid var(--border-color); border-radius: 12px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.5); position: absolute; bottom: 65px; left: 0; }
+        .chat-btn { width: 55px; height: 55px; background-color: #00ff00; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 26px; cursor: pointer; box-shadow: var(--neon-glow); transition: 0.2s; }
+        .chat-box { width: 280px; height: 350px; background-color: var(--chat-bg); border: 2px solid var(--border-color); border-radius: 12px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 5px 20px rgba(0,255,0,0.3); position: absolute; bottom: 65px; left: 0; }
         .chat-header { background-color: #00ff00; color: #000; padding: 12px; font-weight: bold; font-size: 14px; display: flex; justify-content: space-between; align-items: center; }
-        .chat-close { cursor: pointer; font-size: 16px; }
+        .chat-close { cursor: pointer; }
         .chat-messages { flex: 1; padding: 10px; overflow-y: auto; font-size: 13px; display: flex; flex-direction: column; gap: 8px; }
         .msg { padding: 8px 12px; border-radius: 8px; max-width: 80%; }
-        .msg.system { background-color: #333; color: #fff; align-self: flex-start; border-bottom-left-radius: 0; }
-        [data-theme="light"] .msg.system { background-color: #ebeeec; color: #000; }
-        .chat-input-area { display: flex; border-top: 1px solid var(--border-color); padding: 5px; background-color: var(--bg-card); }
-        .chat-input { flex: 1; border: none; padding: 8px; font-size: 13px; background: transparent; color: var(--text-main); outline: none; }
+        .msg.system { background-color: #151515; color: #00ff00; align-self: flex-start; border: 1px solid #00ff00; }
+        .chat-input-area { display: flex; border-top: 1px solid var(--border-color); padding: 5px; background-color: #000; }
+        .chat-input { flex: 1; border: none; padding: 8px; font-size: 13px; background: transparent; color: #00ff00; outline: none; }
     </style>
 </head>
 <body>
+
+    <canvas id="matrixCanvas"></canvas>
 
     <header>
         <h1>🏴‍☠️ PRIYANSHU EXPLOIT 🏴‍☠️</h1>
@@ -122,13 +126,7 @@
 
         <div class="ad-box">
             <script type="text/javascript">
-                atOptions = {
-                    'key' : '6c0a601de70fd29478a1231dc4b383b3',
-                    'format' : 'iframe',
-                    'height' : 90,
-                    'width' : 728,
-                    'params' : {}
-                };
+                atOptions = { 'key' : '6c0a601de70fd29478a1231dc4b383b3', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
             </script>
             <script type="text/javascript" src="//www.highperformanceformat.com/6c0a601de70fd29478a1231dc4b383b3/invoke.js"></script>
         </div>
@@ -139,14 +137,14 @@
             
             <div class="app-card">
                 <div>
-                    <div class="app-icon" style="background: linear-gradient(45deg, #111, #222); border: 1px solid #00ff00; color: #00ff00;">💻</div>
+                    <div class="app-icon">💻</div>
                     <div class="app-title">Termux Tool v1.0</div>
                     <div class="app-category">Tools / Tech</div>
                     <div class="app-stats">⭐ 4.9 | 📥 5K+</div>
                 </div>
                 <div class="btn-group">
-                    <a href="https://raw.githubusercontent.com/Priyanshu31460014/exploit/main/tool.py" class="download-btn" download="tool.py">DOWNLOAD</a>
-                    <a href="https://api.whatsapp.com/send?text=Hey! Check out Termux Tool v1.0 on Priyanhsu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn">🔗 WA</a>
+                    <a href="https://raw.githubusercontent.com/Priyanshu31460014/exploit/main/tool.py" class="download-btn" onclick="playBeep()" download="tool.py">DOWNLOAD</a>
+                    <a href="https://api.whatsapp.com/send?text=Hey! Check out Termux Tool v1.0 on Priyanshu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
                 </div>
             </div>
 
@@ -158,8 +156,8 @@
                     <div class="app-stats">⭐ 4.8 | 📥 45K+</div>
                 </div>
                 <div class="btn-group">
-                    <a href="#" class="download-btn">DOWNLOAD</a>
-                    <a href="https://api.whatsapp.com/send?text=Hey! Check out Free Fire Zone on Priyanhsu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn">🔗 WA</a>
+                    <a href="#" class="download-btn" onclick="playBeep()">DOWNLOAD</a>
+                    <a href="https://api.whatsapp.com/send?text=Hey! Check out Free Fire Zone on Priyanshu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
                 </div>
             </div>
 
@@ -171,8 +169,8 @@
                     <div class="app-stats">⭐ 4.7 | 📥 12K+</div>
                 </div>
                 <div class="btn-group">
-                    <a href="#" class="download-btn">DOWNLOAD</a>
-                    <a href="https://api.whatsapp.com/send?text=Hey! Check out BGMI GFX Mod on Priyanhsu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn">🔗 WA</a>
+                    <a href="#" class="download-btn" onclick="playBeep()">DOWNLOAD</a>
+                    <a href="https://api.whatsapp.com/send?text=Hey! Check out BGMI GFX Mod on Priyanshu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
                 </div>
             </div>
 
@@ -184,8 +182,8 @@
                     <div class="app-stats">⭐ 4.9 | 📥 8K+</div>
                 </div>
                 <div class="btn-group">
-                    <a href="#" class="download-btn">DOWNLOAD</a>
-                    <a href="https://api.whatsapp.com/send?text=Hey! Check out Anime Combat on Priyanhsu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn">🔗 WA</a>
+                    <a href="#" class="download-btn" onclick="playBeep()">DOWNLOAD</a>
+                    <a href="https://api.whatsapp.com/send?text=Hey! Check out Anime Combat on Priyanshu Exploit: https://priyanshu31460014.github.io/exploit/" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
                 </div>
             </div>
 
@@ -219,13 +217,7 @@
 
         <div class="ad-box" style="margin-top: 40px;">
             <script type="text/javascript">
-                atOptions = {
-                    'key' : '6c0a601de70fd29478a1231dc4b383b3',
-                    'format' : 'iframe',
-                    'height' : 90,
-                    'width' : 728,
-                    'params' : {}
-                };
+                atOptions = { 'key' : '6c0a601de70fd29478a1231dc4b383b3', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
             </script>
             <script type="text/javascript" src="//www.highperformanceformat.com/6c0a601de70fd29478a1231dc4b383b3/invoke.js"></script>
         </div>
@@ -233,7 +225,7 @@
     </div>
 
     <div class="chat-widget">
-        <div class="chat-btn" onclick="toggleChat()">💬</div>
+        <div class="chat-btn" onclick="toggleChat(); playBeep();">💬</div>
         <div class="chat-box" id="chatBox">
             <div class="chat-header">
                 <span>Priyanshu Exploit Support</span>
@@ -250,9 +242,60 @@
     </div>
 
     <script>
-        // 1. डार्क/लाइट मोड स्क्रिप्ट
+        // 🔊 १. साइबर बीप साउंड इफेक्ट (बिना ऑडियो फ़ाइल के)
+        function playBeep() {
+            try {
+                const ctx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = "sine";
+                osc.frequency.setValueAtTime(800, ctx.currentTime); // बीप फ़्रीक्वेंसी
+                gain.gain.setValueAtTime(0.05, ctx.currentTime);    // आवाज़ का वॉल्यूम
+                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + 0.1);
+            } catch(e) {}
+        }
+
+        // 🌌 २. मैट्रिक्स रेन कोड एनीमेशन
+        const canvas = document.getElementById('matrixCanvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const alphabet = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&";
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const rainDrops = Array.from({ length: columns }).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(10, 10, 10, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#00ff00';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < rainDrops.length; i++) {
+                const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+                if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    rainDrops[i] = 0;
+                }
+                rainDrops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 30);
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        // ३. डार्क/लाइट मोड लॉजिक
         const themeBtn = document.getElementById('themeBtn');
         themeBtn.addEventListener('click', () => {
+            playBeep();
             const currentTheme = document.documentElement.getAttribute('data-theme');
             if (currentTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'dark');
@@ -263,7 +306,7 @@
             }
         });
 
-        // 2. लाइव सर्च बार स्क्रिप्ट
+        // ४. लाइव सर्च बार लॉजिक
         const searchInput = document.getElementById('searchInput');
         const appCards = document.querySelectorAll('.app-card');
         searchInput.addEventListener('input', (e) => {
@@ -279,9 +322,10 @@
             });
         });
 
-        // 3. लाइव पोल लॉजिक
-        let votes = [24, 42, 18];
+        // ५. लाइव पोल लॉजिक
+        let votes = [32, 54, 21];
         function vote(optionIndex) {
+            playBeep();
             votes[optionIndex - 1] += 1;
             const totalVotes = votes[0] + votes[1] + votes[2];
             for(let i = 1; i <= 3; i++) {
@@ -291,27 +335,29 @@
             }
         }
 
-        // 4. 🎁 लकी स्पिन व्हील लॉजिक
+        // ६. 🎁 लकी स्पिन व्हील लॉजिक
         let canSpin = true;
         function spinWheel() {
             if (!canSpin) return;
+            playBeep();
             canSpin = false;
             const wheel = document.getElementById('wheel');
             const result = document.getElementById('spinResult');
-            result.textContent = "Spinning...";
+            result.textContent = "Accessing Database...";
             
-            const randomRotation = Math.floor(Math.random() * 360) + 1440; // कम से कम 4 बार घूमेगा
+            const randomRotation = Math.floor(Math.random() * 360) + 1440;
             wheel.style.transform = `rotate(${randomRotation}deg)`;
             
             setTimeout(() => {
                 const prizes = ["VIP Access Key Granted!", "Free Fire Script Unlocked!", "Try Again Tomorrow, Bro!", "Premium GFX Key Code!"];
                 const finalPrize = prizes[Math.floor(Math.random() * prizes.length)];
-                result.textContent = "🎉 Result: " + finalPrize;
+                result.textContent = "🏴‍☠️ Result: " + finalPrize;
+                playBeep();
                 canSpin = true;
             }, 3000);
         }
 
-        // 5. 💬 चैट बॉक्स लॉजिक
+        // ७. 💬 चैट बॉक्स लॉजिक
         function toggleChat() {
             const chatBox = document.getElementById('chatBox');
             chatBox.style.display = (chatBox.style.display === 'flex') ? 'none' : 'flex';
@@ -319,11 +365,11 @@
 
         function handleChat(event) {
             if (event.key === 'Enter' && event.target.value.trim() !== "") {
+                playBeep();
                 const txt = event.target.value;
                 event.target.value = "";
                 const chatMessages = document.getElementById('chatMessages');
                 
-                // यूजर का मैसेज
                 const uMsg = document.createElement('div');
                 uMsg.className = 'msg';
                 uMsg.style.alignSelf = 'flex-end';
@@ -332,8 +378,18 @@
                 uMsg.textContent = txt;
                 chatMessages.appendChild(uMsg);
                 
-                // ऑटोमैटिक रिप्लाई ट्रिक
                 setTimeout(() => {
                     const sMsg = document.createElement('div');
                     sMsg.className = 'msg system';
-                    sMsg.textContent = "Thanks for reporting, bro! Priyanshu Admin
+                    sMsg.textContent = "Thanks for reporting, bro! Priyanshu Admin is reviewing your query. Stay tuned!";
+                    chatMessages.appendChild(sMsg);
+                    playBeep();
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+                
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>
