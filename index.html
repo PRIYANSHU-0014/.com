@@ -12,7 +12,7 @@
             --text-main: #00ff00;
             --text-sub: #888;
             --border-color: #00ff00;
-            --header-bg: linear-gradient(135deg, #0f0f0f, #000000);
+            --header-bg: linear-gradient(135deg, #050505, #000000);
             --ad-bg: #111111;
             --search-bg: #151515;
             --search-text: #00ff00;
@@ -28,7 +28,7 @@
             --text-main: #1a1a1a;
             --text-sub: #666;
             --border-color: #e0e0e0;
-            --header-bg: linear-gradient(135deg, #00ff00, #00aa00);
+            --header-bg: linear-gradient(135deg, #ffffff, #e6e6e6);
             --ad-bg: #ebeeec;
             --search-bg: #ffffff;
             --search-text: #000000;
@@ -43,16 +43,68 @@
         #matrixCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; display: block; }
         [data-theme="light"] #matrixCanvas { display: none; }
 
-        header { background: var(--header-bg); padding: 30px 20px; border-bottom: 3px solid #00ff00; position: relative; box-shadow: var(--neon-glow); }
-        header h1 { margin: 0; font-size: 28px; color: #00ff00; text-shadow: var(--neon-glow); letter-spacing: 3px; }
-        [data-theme="light"] header h1 { color: #ffffff; text-shadow: 0 2px 5px rgba(0,0,0,0.3); }
-        header p { margin: 10px 0 0 0; color: var(--text-sub); font-size: 14px; }
+        /* 🔥 क्लीन हेडर - अब यहाँ कोई बटन या काउंटर नाम को नहीं दबाएगा */
+        header { 
+            background: var(--header-bg); 
+            padding: 40px 15px; 
+            border-bottom: 3px solid #00ff00; 
+            position: relative; 
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+            z-index: 5;
+        }
+        header h1 { 
+            margin: 0; 
+            font-size: 32px; 
+            font-weight: 900;
+            color: #00ff00; 
+            text-shadow: 0 0 10px #00ff00; 
+            letter-spacing: 3px;
+            word-wrap: break-word;
+        }
+        header p { 
+            margin: 10px 0 0 0; 
+            color: var(--text-sub); 
+            font-size: 14px; 
+        }
+
+        /* 👑 कंट्रोल पैनल - काउंटर और थीम बटन अब हेडर के नीचे सुरक्षित हैं */
+        .control-panel {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 500px;
+            margin: 15px auto;
+            padding: 0 15px;
+        }
 
         /* 💰 कॉइन डिस्प्ले काउंटर */
-        .coin-display { position: absolute; top: 20px; left: 20px; background: #000; border: 2px solid #ffff00; color: #ffff00; padding: 8px 15px; font-weight: bold; border-radius: 20px; font-size: 14px; display: flex; align-items: center; gap: 5px; box-shadow: 0 0 10px #ffff00; z-index: 10; }
+        .coin-display { 
+            background: #000; 
+            border: 2px solid #ffff00; 
+            color: #ffff00; 
+            padding: 8px 15px; 
+            font-weight: bold; 
+            border-radius: 20px; 
+            font-size: 14px; 
+            display: flex; 
+            align-items: center; 
+            gap: 5px; 
+            box-shadow: 0 0 10px #ffff00; 
+        }
 
         /* थीम स्विच बटन */
-        .theme-toggle-btn { position: absolute; top: 20px; right: 20px; background-color: #000; color: #00ff00; border: 2px solid #00ff00; padding: 8px 15px; font-weight: bold; cursor: pointer; border-radius: 20px; font-size: 12px; transition: 0.2s; z-index: 10; box-shadow: var(--neon-glow); }
+        .theme-toggle-btn { 
+            background-color: #000; 
+            color: #00ff00; 
+            border: 2px solid #00ff00; 
+            padding: 8px 15px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            border-radius: 20px; 
+            font-size: 12px; 
+            transition: 0.2s; 
+            box-shadow: var(--neon-glow); 
+        }
         .theme-toggle-btn:hover { transform: scale(1.05); }
         [data-theme="light"] .theme-toggle-btn { background-color: #ffffff; color: #000000; border-color: #000000; box-shadow: none; }
 
@@ -63,12 +115,17 @@
         .search-container { margin: 20px auto; max-width: 500px; padding: 0 10px; position: relative; z-index: 2; }
         .search-input { width: 100%; padding: 12px 20px; font-size: 16px; border: 2px solid var(--border-color); border-radius: 25px; background-color: var(--search-bg); color: var(--search-text); outline: none; transition: border-color 0.2s; box-sizing: border-box; box-shadow: var(--neon-glow); }
 
-        /* 🚀 TOP POP TASK SECTION */
+        /* 🚀 REAL TOP POP TASK SECTION */
         .pop-container { max-width: 500px; margin: 20px auto; background-color: var(--bg-card); border: 2px solid #ffff00; border-radius: 12px; padding: 20px; box-shadow: 0 0 15px rgba(255, 255, 0, 0.3); text-align: center; backdrop-filter: blur(5px); }
         .pop-title { font-size: 18px; font-weight: bold; color: #ffff00; margin-bottom: 10px; text-shadow: 0 0 5px #ffff00; }
         .pop-desc { font-size: 13px; color: var(--text-sub); margin-bottom: 15px; }
-        .pop-btn { background-color: #ffff00; color: #000; border: none; padding: 10px 25px; font-size: 14px; font-weight: bold; border-radius: 20px; cursor: pointer; transition: 0.2s; box-shadow: 0 0 10px #ffff00; text-decoration: none; display: inline-block; }
-        .pop-btn:hover { transform: scale(1.05); }
+        
+        /* बटन्स का ग्रुप */
+        .pop-btn-group { display: flex; flex-direction: column; gap: 10px; align-items: center; }
+        .pop-btn { width: 85%; background-color: #ffff00; color: #000; border: none; padding: 12px; font-size: 14px; font-weight: bold; border-radius: 25px; cursor: pointer; transition: 0.2s; box-shadow: 0 0 10px #ffff00; text-decoration: none; text-align: center; }
+        .pop-btn:hover { transform: scale(1.03); }
+        .claim-btn { width: 85%; background-color: #00ff00; color: #000; border: none; padding: 12px; font-size: 14px; font-weight: bold; border-radius: 25px; cursor: pointer; transition: 0.2s; box-shadow: 0 0 10px #00ff00; display: none; }
+        .claim-btn:hover { transform: scale(1.03); }
 
         h2.section-title { text-align: left; color: var(--text-main); border-left: 4px solid #ff0000; padding-left: 10px; margin-top: 30px; font-size: 20px; text-shadow: var(--neon-glow); }
 
@@ -89,7 +146,6 @@
         .download-btn:hover { background-color: #cc0000; box-shadow: 0 0 15px #ff0000; }
         
         .share-btn { flex: 1; background-color: #25D366; color: white; padding: 8px 5px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; transition: 0.2s; }
-        .share-btn:hover { background-color: #128C7E; transform: scale(1.05); }
 
         /* लाइव पोल */
         .poll-container { max-width: 500px; margin: 40px auto; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: left; box-shadow: var(--neon-glow); backdrop-filter: blur(5px); }
@@ -102,14 +158,12 @@
         /* 💬 लाइव चैट बॉक्स */
         .chat-widget { position: fixed; bottom: 20px; left: 20px; z-index: 1000; text-align: left; }
         .chat-btn { width: 55px; height: 55px; background-color: #00ff00; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 26px; cursor: pointer; box-shadow: var(--neon-glow); transition: 0.2s; }
-        .chat-btn:hover { transform: scale(1.1); }
         .chat-box { width: 280px; height: 350px; background-color: var(--chat-bg); border: 2px solid var(--border-color); border-radius: 12px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 5px 20px rgba(0,255,0,0.3); position: absolute; bottom: 65px; left: 0; }
         .chat-header { background-color: #00ff00; color: #000; padding: 12px; font-weight: bold; font-size: 14px; display: flex; justify-content: space-between; align-items: center; }
         .chat-close { cursor: pointer; }
         .chat-messages { flex: 1; padding: 10px; overflow-y: auto; font-size: 13px; display: flex; flex-direction: column; gap: 8px; }
         .msg { padding: 8px 12px; border-radius: 8px; max-width: 80%; }
         .msg.system { background-color: #151515; color: #00ff00; align-self: flex-start; border: 1px solid #00ff00; }
-        [data-theme="light"] .msg.system { background-color: #ebeeec; color: #000; border-color: #e0e0e0; }
         .chat-input-area { display: flex; border-top: 1px solid var(--border-color); padding: 5px; background-color: #000; }
         .chat-input { flex: 1; border: none; padding: 8px; font-size: 13px; background: transparent; color: #00ff00; outline: none; }
     </style>
@@ -119,12 +173,14 @@
     <canvas id="matrixCanvas"></canvas>
 
     <header>
-        <div class="coin-display">🪙 Coins: <span id="userCoins">0</span></div>
-        
         <h1>🏴‍☠️ PRIYANSHU EXPLOIT 🏴‍☠️</h1>
         <p>Premium Android MOD Apps & Gaming Tools Station</p>
-        <button class="theme-toggle-btn" id="themeBtn">🌓 LIGHT MODE</button>
     </header>
+
+    <div class="control-panel">
+        <div class="coin-display">🪙 Coins: <span id="userCoins">0</span></div>
+        <button class="theme-toggle-btn" id="themeBtn">🌓 LIGHT MODE</button>
+    </div>
 
     <div class="search-container">
         <input type="text" id="searchInput" class="search-input" placeholder="Search apps or tools...">
@@ -134,8 +190,17 @@
 
         <div class="pop-container">
             <div class="pop-title">💥 TOP POP TASK: EARN COINS 💥</div>
-            <div class="pop-desc">ऐप्स अनलॉक करने के लिए कॉइन्स की ज़रूरत है? नीचे बटन दबाकर टास्क पूरा करो और तुरंत <b>+50 कॉइन्स</b> पाओ!</div>
-            <a href="https://www.highperformanceformat.com/6c0a601de70fd29478a1231dc4b383b3/invoke.js" target="_blank" class="pop-btn" onclick="earnCoins()">🔥 COMPLETE TOP POP (+50 Coins)</a>
+            <div class="pop-desc">नीचे दिए बटन पर क्लिक करके असली टास्क/ऐड पूरा करो, फिर वापस आकर कॉइन्स क्लेम करो!</div>
+            
+            <div class="pop-btn-group">
+                <a href="https://www.highperformanceformat.com/6c0a601de70fd29478a1231dc4b383b3/invoke.js" target="_blank" class="pop-btn" onclick="startTask()">
+                    🔥 1. COMPLETE TOP POP TASK
+                </a>
+                
+                <button id="claimBtn" class="claim-btn" onclick="claimCoins()">
+                    🎁 2. CLAIM +50 COINS NOW
+                </button>
+            </div>
         </div>
 
         <div class="ad-box">
@@ -252,7 +317,7 @@
     </div>
 
     <script>
-        // 🔊 १. साइबर साउंड इफेक्ट (ऑडियो कॉनटेक्स्ट जनरेटर)
+        // 🔊 १. साइबर साउंड इफेक्ट
         function playBeep() {
             try {
                 const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -298,20 +363,45 @@
             canvas.height = window.innerHeight;
         });
 
-        // 💰 ३. एडवांस कॉइन और परचेज़ मैनेजमेंट सिस्टम
+        // 💰 ३. असली कॉइन और टास्क मैनेजमेंट सिस्टम
         let coins = parseInt(localStorage.getItem('priyanshu_coins')) || 0;
         let purchasedApps = JSON.parse(localStorage.getItem('priyanshu_purchased')) || [];
+        let isTaskStarted = sessionStorage.getItem('task_started') || "false";
         
         document.getElementById('userCoins').textContent = coins;
 
-        // टास्क क्लिक होने पर कॉइन बढ़ाना
-        function earnCoins() {
+        // पेज लोड होते ही चेक करना कि क्या यूजर टास्क शुरू करके आया है
+        if (isTaskStarted === "true") {
+            document.getElementById('claimBtn').style.display = 'block';
+        }
+
+        // असली टास्क शुरू करना (यह यूजर को एडस्टेरा लिंक पर भेजेगा)
+        function startTask() {
             playBeep();
-            coins += 50;
-            localStorage.setItem('priyanshu_coins', coins);
-            document.getElementById('userCoins').textContent = coins;
-            alert("🎉 कड़क भाई! 'TOP POP' टास्क शुरू हो गया है और आपके अकाउंट में +50 कॉइन्स जोड़ दिए गए हैं।");
-            updateAppButtons();
+            sessionStorage.setItem('task_started', "true");
+            // २ सेकंड बाद क्लेम बटन स्क्रीन पर दिखा देंगे
+            setTimeout(() => {
+                document.getElementById('claimBtn').style.display = 'block';
+            }, 2000);
+        }
+
+        // टास्क पूरा करने के बाद कॉइन क्लेम करना
+        function claimCoins() {
+            playBeep();
+            if (sessionStorage.getItem('task_started') === "true") {
+                coins += 50;
+                localStorage.setItem('priyanshu_coins', coins);
+                document.getElementById('userCoins').textContent = coins;
+                
+                // टास्क स्टेट रीसेट करना ताकि दोबारा क्लिक करना पड़े
+                sessionStorage.removeItem('task_started');
+                document.getElementById('claimBtn').style.display = 'none';
+                
+                alert("🎉 कड़क! टास्क कम्प्लीट करने के लिए आपको +50 कॉइन्स मिल गए हैं।");
+                updateAppButtons();
+            } else {
+                alert("❌ पहले स्टेप 1 वाले बटन पर क्लिक करके टास्क पूरा करो भाई!");
+            }
         }
 
         // परचेज़ या डाउनलोड हैंडलर
@@ -334,15 +424,15 @@
                     localStorage.setItem('priyanshu_purchased', JSON.stringify(purchasedApps));
                     
                     document.getElementById('userCoins').textContent = coins;
-                    alert("🔓 बधाई हो! ऐप सफलता पूर्वक अनलॉक हो गया। अब आप इसे डाउनलोड कर सकते हैं।");
+                    alert("🔓 बधाई हो! ऐप सफलतापूर्वक अनलॉक हो गया।");
                     updateAppButtons();
                 }
             } else {
-                alert("❌ ओहो भाई! कॉइन्स कम हैं। ऊपर पीले वाले 'TOP POP TASK' बटन पर क्लिक करके पहले कॉइन्स कमा लो!");
+                alert("❌ ओहो भाई! कॉइन्स कम हैं। ऊपर 'TOP POP TASK' पूरा करके पहले कॉइन्स क्लेम कर लो!");
             }
         }
 
-        // बटन्स का स्टेटस लाइव चेंज करना
+        // बटन्स स्टेटस अपडेट
         function updateAppButtons() {
             const apps = [
                 { id: 'app1', text: 'DOWNLOAD APK' },
