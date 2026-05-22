@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
@@ -13,10 +12,6 @@
     <meta name="author" content="Priyanshu">
     <meta name="robots" content="index, follow">
     
-    <meta property="og:title" content="Priyanshu Exploit - Premium APK Store">
-    <meta property="og:description" content="Download latest Android MODs and Cyber Tools directly from Priyanshu Exploit.">
-    <meta property="og:type" content="website">
-
     <style>
         :root {
             --bg-body: #0a0a0a;
@@ -28,8 +23,6 @@
             --ad-bg: #111111;
             --search-bg: #151515;
             --search-text: #00ff00;
-            --poll-bg: #151515;
-            --chat-bg: #111111;
             --neon-glow: 0 0 10px #00ff00;
         }
 
@@ -43,8 +36,6 @@
             --ad-bg: #ebeeec;
             --search-bg: #ffffff;
             --search-text: #000000;
-            --poll-bg: #ebeeec;
-            --chat-bg: #ffffff;
             --neon-glow: none;
         }
         
@@ -75,33 +66,13 @@
         header p { margin: 10px 0 0 0; color: var(--text-sub); font-size: 14px; }
 
         .control-panel { display: flex; justify-content: space-between; align-items: center; max-width: 500px; margin: 15px auto; padding: 0 15px; }
-
-        .coin-box-wrapper { display: flex; flex-direction: column; gap: 5px; align-items: flex-start; }
-        .coin-display { background: #000; border: 2px solid #ffff00; color: #ffff00; padding: 6px 12px; font-weight: bold; border-radius: 20px; font-size: 13px; display: flex; align-items: center; gap: 5px; box-shadow: 0 0 10px #ffff00; }
-        .vip-badge { background: linear-gradient(45deg, #ff0055, #ffcc00); color: #fff; font-size: 10px; padding: 2px 8px; font-weight: bold; border-radius: 10px; text-shadow: 0 1px 2px #000; animation: pulse 1.5s infinite; border: 1px solid #fff; }
-
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); box-shadow: 0 0 10px #ff0055; } 100% { transform: scale(1); } }
-
         .theme-toggle-btn { background-color: #000; color: #00ff00; border: 2px solid #00ff00; padding: 8px 15px; font-weight: bold; cursor: pointer; border-radius: 20px; font-size: 12px; transition: 0.2s; box-shadow: var(--neon-glow); }
-        .theme-toggle-btn:hover { transform: scale(1.05); }
 
         .container { padding: 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
         .ad-box { margin: 20px auto; width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; background-color: var(--ad-bg); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
 
         .search-container { margin: 20px auto; max-width: 500px; padding: 0 10px; position: relative; z-index: 2; }
         .search-input { width: 100%; padding: 12px 20px; font-size: 16px; border: 2px solid var(--border-color); border-radius: 25px; background-color: var(--search-bg); color: var(--search-text); outline: none; box-shadow: var(--neon-glow); box-sizing: border-box; }
-
-        .pop-container { max-width: 500px; margin: 20px auto; background-color: var(--bg-card); border: 2px solid #ffff00; border-radius: 12px; padding: 20px; box-shadow: 0 0 15px rgba(255, 255, 0, 0.3); text-align: center; backdrop-filter: blur(5px); }
-        .pop-title { font-size: 18px; font-weight: bold; color: #ffff00; margin-bottom: 10px; text-shadow: 0 0 5px #ffff00; }
-        .pop-desc { font-size: 13px; color: var(--text-sub); margin-bottom: 15px; }
-        
-        .pop-btn-group { display: flex; flex-direction: column; gap: 10px; align-items: center; }
-        .pop-btn { width: 85%; background-color: #ffff00; color: #000; border: none; padding: 12px; font-size: 14px; font-weight: bold; border-radius: 25px; cursor: pointer; transition: 0.2s; box-shadow: 0 0 10px #ffff00; text-decoration: none; text-align: center; }
-        .claim-btn { width: 85%; background-color: #00ff00; color: #000; border: none; padding: 12px; font-size: 14px; font-weight: bold; border-radius: 25px; cursor: pointer; box-shadow: 0 0 10px #00ff00; display: none; }
-
-        .scan-container { display: none; margin: 15px auto; max-width: 85%; background: #222; border-radius: 10px; padding: 8px; border: 1px solid #ff0000; }
-        .scan-text { font-size: 11px; color: #ff0000; font-weight: bold; margin-bottom: 5px; text-align: left; }
-        .scan-bar { height: 10px; background: #00ff00; width: 0%; border-radius: 5px; transition: width 0.1s linear; }
 
         h2.section-title { text-align: left; color: var(--text-main); border-left: 4px solid #ff0000; padding-left: 10px; margin-top: 30px; font-size: 20px; text-shadow: var(--neon-glow); }
 
@@ -113,36 +84,18 @@
         .app-title { font-size: 15px; font-weight: bold; margin: 5px 0; color: var(--text-main); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .app-category { font-size: 12px; color: #ff0000; margin-bottom: 5px; font-weight: 500; }
         .app-stats { font-size: 11px; color: var(--text-sub); margin-bottom: 5px; }
-        .app-cost { font-size: 12px; color: #ffff00; font-weight: bold; margin-bottom: 10px; }
+        .app-cost { font-size: 12px; color: #00ff00; font-weight: bold; margin-bottom: 10px; }
 
         .btn-group { display: flex; flex-direction: column; gap: 5px; margin-top: auto; }
-        .btn-row { display: flex; gap: 5px; }
         
-        .pay-btn { flex: 2; background: linear-gradient(45deg, #007bff, #00d2ff); color: #ffffff; padding: 8px 10px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; border: 1px solid #007bff; box-shadow: 0 0 5px #007bff; cursor: pointer; outline: none; transition: 0.2s; }
-        .pay-btn:hover { background: linear-gradient(45deg, #0056b3, #0099ff); box-shadow: 0 0 15px #00d2ff; }
-
-        .download-btn { flex: 2; background-color: #ff0000; color: #ffffff; padding: 8px 10px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; border: 1px solid #ff0000; box-shadow: 0 0 5px #ff0000; cursor: pointer; outline: none; }
+        .download-btn { width: 100%; background-color: #ff0000; color: #ffffff; padding: 10px; text-decoration: none; font-size: 12px; font-weight: bold; border-radius: 6px; text-align: center; border: 1px solid #ff0000; box-shadow: 0 0 5px #ff0000; cursor: pointer; outline: none; }
         .download-btn:hover { background-color: #cc0000; box-shadow: 0 0 15px #ff0000; }
-        .share-btn { flex: 1; background-color: #25D366; color: white; padding: 8px 5px; text-decoration: none; font-size: 11px; font-weight: bold; border-radius: 6px; text-align: center; }
 
-        .poll-container { max-width: 500px; margin: 40px auto; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px; text-align: left; box-shadow: var(--neon-glow); backdrop-filter: blur(5px); }
-        .poll-question { font-size: 16px; font-weight: bold; margin-bottom: 15px; color: var(--text-main); }
-        .poll-option { background-color: var(--poll-bg); border: 1px solid var(--border-color); padding: 12px; margin-bottom: 10px; border-radius: 8px; cursor: pointer; position: relative; overflow: hidden; transition: 0.2s; }
-        .poll-bar { position: absolute; top: 0; left: 0; height: 100%; background-color: rgba(0, 255, 0, 0.25); width: 0%; transition: width 0.5s ease-in-out; }
-        .poll-text { position: relative; z-index: 2; display: flex; justify-content: space-between; font-size: 14px; color: var(--text-main); }
+        .scan-container { display: none; margin: 15px auto; max-width: 85%; background: #222; border-radius: 10px; padding: 8px; border: 1px solid #ff0000; }
+        .scan-text { font-size: 11px; color: #ff0000; font-weight: bold; margin-bottom: 5px; text-align: left; }
+        .scan-bar { height: 10px; background: #00ff00; width: 0%; border-radius: 5px; transition: width 0.1s linear; }
 
         .live-counter-box { margin: 20px auto; max-width: 200px; background: rgba(0,0,0,0.8); border: 1px solid #00ff00; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; box-shadow: var(--neon-glow); }
-
-        .chat-widget { position: fixed; bottom: 20px; left: 20px; z-index: 1000; text-align: left; }
-        .chat-btn { width: 55px; height: 55px; background-color: #00ff00; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 26px; cursor: pointer; box-shadow: var(--neon-glow); transition: 0.2s; }
-        .chat-box { width: 280px; height: 350px; background-color: var(--chat-bg); border: 2px solid var(--border-color); border-radius: 12px; display: none; flex-direction: column; overflow: hidden; box-shadow: 0 5px 20px rgba(0,255,0,0.3); position: absolute; bottom: 65px; left: 0; }
-        .chat-header { background-color: #00ff00; color: #000; padding: 12px; font-weight: bold; font-size: 14px; display: flex; justify-content: space-between; align-items: center; }
-        .chat-close { cursor: pointer; }
-        .chat-messages { flex: 1; padding: 10px; overflow-y: auto; font-size: 13px; display: flex; flex-direction: column; gap: 8px; }
-        .msg { padding: 8px 12px; border-radius: 8px; max-width: 80%; }
-        .msg.system { background-color: #151515; color: #00ff00; align-self: flex-start; border: 1px solid #00ff00; }
-        .chat-input-area { display: flex; border-top: 1px solid var(--border-color); padding: 5px; background-color: #000; }
-        .chat-input { flex: 1; border: none; padding: 8px; font-size: 13px; background: transparent; color: #00ff00; outline: none; }
     </style>
 </head>
 <body>
@@ -150,7 +103,7 @@
     <canvas id="matrixCanvas"></canvas>
 
     <div class="notice-ticker">
-        <marquee scrollamount="5">⚠️ NOTICE: Complete TOP POP Task daily to get unlimited 50+ coins! 🔥 New BGMI & Free Fire MOD Tools arriving tonight! Keep supporting Priyanshu Exploit! 🏴‍☠️</marquee>
+        <marquee scrollamount="5">⚠️ NOTICE: All Premium MOD APKs are now 100% FREE! Powered by MediaFire Ultra-Fast Servers. Keep supporting Priyanshu Exploit! 🏴‍☠️</marquee>
     </div>
 
     <header>
@@ -159,10 +112,7 @@
     </header>
 
     <div class="control-panel">
-        <div class="coin-box-wrapper">
-            <div class="coin-display">🪙 Coins: <span id="userCoins">0</span></div>
-            <div class="vip-badge">⚡ ELITE HACKER</div>
-        </div>
+        <div></div>
         <button class="theme-toggle-btn" id="themeBtn">🌓 LIGHT MODE</button>
     </div>
 
@@ -172,20 +122,6 @@
 
     <div class="container">
 
-        <div class="pop-container">
-            <div class="pop-title">💥 TOP POP TASK: EARN COINS 💥</div>
-            <div class="pop-desc">नीचे दिए बटन पर क्लिक करके असली टास्क/ऐड पूरा करो, फिर वापस आकर कॉइन्स क्लेम करो!</div>
-            
-            <div class="pop-btn-group">
-                <a href="https://www.highperformanceformat.com/6c0a601de70fd29478a1231dc4b383b3/invoke.js" target="_blank" class="pop-btn" onclick="startTask()">
-                    🔥 1. COMPLETE TOP POP TASK
-                </a>
-                <button id="claimBtn" class="claim-btn" onclick="claimCoins()">
-                    🎁 2. CLAIM +50 COINS NOW
-                </button>
-            </div>
-        </div>
-
         <div class="ad-box">
             <script type="text/javascript">
                 atOptions = { 'key' : '6c0a601de70fd29478a1231dc4b383b3', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
@@ -193,155 +129,139 @@
             <script type="text/javascript" src="//www.highperformanceformat.com/6c0a601de70fd29478a1231dc4b383b3/invoke.js"></script>
         </div>
 
-        <h2 class="section-title">LATEST PROGRAMS & TOOLS</h2>
+        <h2 class="section-title">PREMIUM MOD APK COLLECTION (FREE)</h2>
         
         <div class="apps-grid" id="appsGrid">
             
-            <div class="app-card" id="card-app1">
+            <div class="app-card">
                 <div>
-                    <div class="app-icon">💻</div>
-                    <div class="app-title">Termux Tool v1.0</div>
-                    <div class="app-category">Tools / Tech</div>
-                    <div class="app-stats">⭐ 4.9 | 📥 5K+</div>
-                    <div class="app-cost">💰 Cost: 30 Coins</div>
+                    <div class="app-icon">🎨</div>
+                    <div class="app-title">PicsArt Gold MOD</div>
+                    <div class="app-category">Photo Editor</div>
+                    <div class="app-stats">⭐ 4.9 | v29.4.5</div>
+                    <div class="app-cost">💰 FREE</div>
                 </div>
                 <div class="btn-group">
-                    <div class="scan-container" id="scan-app1">
-                        <div class="scan-text" id="scan-text-app1">🔍 Scanning file...</div>
-                        <div class="scan-bar" id="bar-app1"></div>
+                    <div class="scan-container" id="scan-picsart">
+                        <div class="scan-text" id="scan-text-picsart">🔍 Scanning MediaFire File...</div>
+                        <div class="scan-bar" id="bar-picsart"></div>
                     </div>
-                    <div class="btn-row">
-                        <button class="download-btn" id="btn-app1" onclick="handlePurchase('app1', 30, 'https://raw.githubusercontent.com/Priyanshu31460014/exploit/main/tool.py', true)">UNLOCK APK</button>
-                        <a href="https://api.whatsapp.com/send?text=Hey! Check out Termux Tool v1.0 on Priyanshu Exploit" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
-                    </div>
+                    <button class="download-btn" id="btn-picsart" onclick="runDownloadScan('picsart', 'https://download1584.mediafire.com/n3hy9rhr8tglxdx/Picsart-Gold-29.4.5-MOD-APK-Premium-Unlocked-Lite.apk')">DOWNLOAD</button>
                 </div>
             </div>
 
-            <div class="app-card" id="card-app2">
+            <div class="app-card">
                 <div>
-                    <div class="app-icon">👑</div>
-                    <div class="app-title">FF VIP Mod Pro</div>
-                    <div class="app-category">Premium Gaming</div>
-                    <div class="app-stats">⭐ 5.0 | Best Seller</div>
-                    <div class="app-cost" style="color: #00d2ff;">💳 Price: ₹49 Only</div>
+                    <div class="app-icon">🎬</div>
+                    <div class="app-title">CapCut Pro MOD</div>
+                    <div class="app-category">Video Editor</div>
+                    <div class="app-stats">⭐ 4.8 | v17.9.0</div>
+                    <div class="app-cost">💰 FREE</div>
                 </div>
                 <div class="btn-group">
-                    <div class="scan-container" id="scan-app2">
-                        <div class="scan-text" id="scan-text-app2">🔍 Initializing Secure Gateway...</div>
-                        <div class="scan-bar" id="bar-app2"></div>
+                    <div class="scan-container" id="scan-capcut">
+                        <div class="scan-text" id="scan-text-capcut">🔍 Scanning MediaFire File...</div>
+                        <div class="scan-bar" id="bar-capcut"></div>
                     </div>
-                    <div class="btn-row">
-                        <a href="#" target="_blank" class="pay-btn" onclick="playBeep()">BUY VIA UPI</a>
-                        <a href="https://api.whatsapp.com/send?text=Get FF VIP Mod Pro on Priyanshu Exploit" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
-                    </div>
+                    <button class="download-btn" id="btn-capcut" onclick="runDownloadScan('capcut', 'placeholder')">DOWNLOAD</button>
                 </div>
             </div>
 
-            <div class="app-card" id="card-app3">
+            <div class="app-card">
                 <div>
-                    <div class="app-icon">🎯</div>
-                    <div class="app-title">BGMI GFX Mod</div>
-                    <div class="app-category">Gaming</div>
-                    <div class="app-stats">⭐ 4.7 | 📥 12K+</div>
-                    <div class="app-cost">💰 Cost: 40 Coins</div>
+                    <div class="app-icon">🕹️</div>
+                    <div class="app-title">Stickman Party MOD</div>
+                    <div class="app-category">Arcade Game</div>
+                    <div class="app-stats">⭐ 4.7 | UMT Money</div>
+                    <div class="app-cost">💰 FREE</div>
                 </div>
                 <div class="btn-group">
-                    <div class="scan-container" id="scan-app3">
-                        <div class="scan-text" id="scan-text-app3">🔍 Scanning file...</div>
-                        <div class="scan-bar" id="bar-app3"></div>
+                    <div class="scan-container" id="scan-stickman">
+                        <div class="scan-text" id="scan-text-stickman">🔍 Scanning MediaFire File...</div>
+                        <div class="scan-bar" id="bar-stickman"></div>
                     </div>
-                    <div class="btn-row">
-                        <button class="download-btn" id="btn-app3" onclick="handlePurchase('app3', 40, '#', false)">UNLOCK APK</button>
-                        <a href="https://api.whatsapp.com/send?text=Hey! Check out BGMI GFX Mod on Priyanshu Exploit" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
-                    </div>
+                    <button class="download-btn" id="btn-stickman" onclick="runDownloadScan('stickman', 'placeholder')">DOWNLOAD</button>
                 </div>
             </div>
 
-            <div class="app-card" id="card-app4">
+            <div class="app-card">
                 <div>
-                    <div class="app-icon">🥷</div>
-                    <div class="app-title">Anime Combat</div>
-                    <div class="app-category">Simulator</div>
-                    <div class="app-stats">⭐ 4.9 | 📥 8K+</div>
-                    <div class="app-cost">💰 Cost: 20 Coins</div>
+                    <div class="app-icon">🔫</div>
+                    <div class="app-title">FRAG Pro Shooter</div>
+                    <div class="app-category">Action Game</div>
+                    <div class="app-stats">⭐ 4.6 | Inf Resource</div>
+                    <div class="app-cost">💰 FREE</div>
                 </div>
                 <div class="btn-group">
-                    <div class="scan-container" id="scan-app4">
-                        <div class="scan-text" id="scan-text-app4">🔍 Scanning file...</div>
-                        <div class="scan-bar" id="bar-app4"></div>
+                    <div class="scan-container" id="scan-frag">
+                        <div class="scan-text" id="scan-text-frag">🔍 Scanning MediaFire File...</div>
+                        <div class="scan-bar" id="bar-frag"></div>
                     </div>
-                    <div class="btn-row">
-                        <button class="download-btn" id="btn-app4" onclick="handlePurchase('app4', 20, '#', false)">UNLOCK APK</button>
-                        <a href="https://api.whatsapp.com/send?text=Hey! Check out Anime Combat on Priyanshu Exploit" target="_blank" class="share-btn" onclick="playBeep()">🔗 WA</a>
-                    </div>
+                    <button class="download-btn" id="btn-frag" onclick="runDownloadScan('frag', 'placeholder')">DOWNLOAD</button>
                 </div>
             </div>
 
-        </div>
+            <div class="app-card">
+                <div>
+                    <div class="app-icon">🚀</div>
+                    <div class="app-title">Tank Stars MOD</div>
+                    <div class="app-category">Strategy Game</div>
+                    <div class="app-stats">⭐ 4.7 | All Unlocked</div>
+                    <div class="app-cost">💰 FREE</div>
+                </div>
+                <div class="btn-group">
+                    <div class="scan-container" id="scan-tank">
+                        <div class="scan-text" id="scan-text-tank">🔍 Scanning MediaFire File...</div>
+                        <div class="scan-bar" id="bar-tank"></div>
+                    </div>
+                    <button class="download-btn" id="btn-tank" onclick="runDownloadScan('tank', 'placeholder')">DOWNLOAD</button>
+                </div>
+            </div>
 
-        <div class="poll-container">
-            <div class="poll-question">📊 आपको अगला कौन सा टूल चाहिए? (Vote Now)</div>
-            
-            <div class="poll-option" onclick="vote(1)">
-                <div class="poll-bar" id="bar1"></div>
-                <div class="poll-text"><span>A) Free Fire GFX Hack</span><span id="percent1">0%</span></div>
+            <div class="app-card">
+                <div>
+                    <div class="app-icon">🦸‍♂️</div>
+                    <div class="app-title">Rope Hero Vice MOD</div>
+                    <div class="app-category">Open World Game</div>
+                    <div class="app-stats">⭐ 4.8 | UMT Gems</div>
+                    <div class="app-cost">💰 FREE</div>
+                </div>
+                <div class="btn-group">
+                    <div class="scan-container" id="scan-rope">
+                        <div class="scan-text" id="scan-text-rope">🔍 Scanning MediaFire File...</div>
+                        <div class="scan-bar" id="bar-rope"></div>
+                    </div>
+                    <button class="download-btn" id="btn-rope" onclick="runDownloadScan('rope', 'placeholder')">DOWNLOAD</button>
+                </div>
             </div>
-            
-            <div class="poll-option" onclick="vote(2)">
-                <div class="poll-bar" id="bar2"></div>
-                <div class="poll-text"><span>B) New Termux Script</span><span id="percent2">0%</span></div>
+
+            <div class="app-card">
+                <div>
+                    <div class="app-icon">🏃</div>
+                    <div class="app-title">Subway Surfers MOD</div>
+                    <div class="app-category">Endless Runner</div>
+                    <div class="app-stats">⭐ 4.9 | Keys & Coins</div>
+                    <div class="app-cost">💰 FREE</div>
+                </div>
+                <div class="btn-group">
+                    <div class="scan-container" id="scan-subway">
+                        <div class="scan-text" id="scan-text-subway">🔍 Scanning MediaFire File...</div>
+                        <div class="scan-bar" id="bar-subway"></div>
+                    </div>
+                    <button class="download-btn" id="btn-subway" onclick="runDownloadScan('subway', 'placeholder')">DOWNLOAD</button>
+                </div>
             </div>
-            
-            <div class="poll-option" onclick="vote(3)">
-                <div class="poll-bar" id="bar3"></div>
-                <div class="poll-text"><span>C) Python Auto-Tool</span><span id="percent3">0%</span></div>
-            </div>
+
         </div>
 
         <div class="live-counter-box">
-            🟢 Live Traffic: <span id="liveCount">124</span> online
+            🟢 Live Traffic: <span id="liveCount">142</span> online
         </div>
 
-        <div class="ad-box" style="margin-top: 40px;">
-            <script type="text/javascript">
-                atOptions = { 'key' : '6c0a601de70fd29478a1231dc4b383b3', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
-            </script>
-            <script type="text/javascript" src="//www.highperformanceformat.com/6c0a601de70fd29478a1231dc4b383b3/invoke.js"></script>
-        </div>
-
-    </div>
-
-    <div class="chat-widget">
-        <div class="chat-btn" onclick="toggleChat(); playBeep();">💬</div>
-        <div class="chat-box" id="chatBox">
-            <div class="chat-header">
-                <span>Priyanshu Exploit Support</span>
-                <span class="chat-close" onclick="toggleChat()">✖</span>
-            </div>
-            <div class="chat-messages" id="chatMessages">
-                <div class="msg system">Hey Brother! Complete Top Pop task to get coins and unlock premium mods! 🥷</div>
-            </div>
-            <div class="chat-input-area">
-                <input type="text" class="chat-input" placeholder="Type a message..." onkeypress="handleChat(event)">
-            </div>
-        </div>
     </div>
 
     <script>
-        function playBeep() {
-            try {
-                const ctx = new (window.AudioContext || window.webkitAudioContext)();
-                const osc = ctx.createOscillator();
-                const gain = ctx.createGain();
-                osc.type = "sine";
-                osc.frequency.setValueAtTime(800, ctx.currentTime);
-                gain.gain.setValueAtTime(0.05, ctx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.1);
-                osc.connect(gain); gain.connect(ctx.destination);
-                osc.start(); osc.stop(ctx.currentTime + 0.1);
-            } catch(e) {}
-        }
-
+        // BACKGROUND MATRIX ANIMATION
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
         canvas.width = window.innerWidth; canvas.height = window.innerHeight;
@@ -363,65 +283,20 @@
             }
         }
         setInterval(drawMatrix, 30);
-        window.addEventListener('resize', () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; });
 
+        // LIVE TRAFFIC SIMULATOR
         setInterval(() => {
-            let currentUsers = Math.floor(Math.random() * (160 - 110 + 1)) + 110;
+            let currentUsers = Math.floor(Math.random() * (180 - 120 + 1)) + 120;
             document.getElementById('liveCount').textContent = currentUsers;
         }, 4000);
 
-        let coins = parseInt(localStorage.getItem('priyanshu_coins')) || 0;
-        let purchasedApps = JSON.parse(localStorage.getItem('priyanshu_purchased')) || [];
-        let isTaskStarted = sessionStorage.getItem('task_started') || "false";
-        
-        document.getElementById('userCoins').textContent = coins;
-
-        if (isTaskStarted === "true") { document.getElementById('claimBtn').style.display = 'block'; }
-
-        function startTask() {
-            playBeep();
-            sessionStorage.setItem('task_started', "true");
-            setTimeout(() => { document.getElementById('claimBtn').style.display = 'block'; }, 2000);
-        }
-
-        function claimCoins() {
-            playBeep();
-            if (sessionStorage.getItem('task_started') === "true") {
-                coins += 50;
-                localStorage.setItem('priyanshu_coins', coins);
-                document.getElementById('userCoins').textContent = coins;
-                sessionStorage.removeItem('task_started');
-                document.getElementById('claimBtn').style.display = 'none';
-                alert("🎉 कड़क! टास्क कम्प्लीट करने के लिए आपको +50 कॉइन्स मिल गए हैं।");
-                updateAppButtons();
-            } else {
-                alert("❌ पहले स्टेप 1 वाले बटन पर क्लिक करके टास्क पूरा करो भाई!");
-            }
-        }
-
-        function handlePurchase(appId, cost, downloadUrl, isRealFile) {
-            playBeep();
-            if (purchasedApps.includes(appId)) {
-                runDownloadScan(appId, downloadUrl, isRealFile);
+        // HACK SCANNING & DIRECT DOWNLOAD TRIGGER
+        function runDownloadScan(appId, downloadUrl) {
+            if (downloadUrl === 'placeholder') {
+                alert("❌ प्रियांशु भाई, पहले इस ऐप का मीडियाफायर लिंक लाकर कोड में सेट करो!");
                 return;
             }
-
-            if (coins >= cost) {
-                if (confirm(`क्या आप इस प्रीमियम टूल को अनलॉक करने के लिए ${cost} कॉइन्स देना चाहते हैं?`)) {
-                    coins -= cost;
-                    purchasedApps.push(appId);
-                    localStorage.setItem('priyanshu_coins', coins);
-                    localStorage.setItem('priyanshu_purchased', JSON.stringify(purchasedApps));
-                    document.getElementById('userCoins').textContent = coins;
-                    updateAppButtons();
-                    runDownloadScan(appId, downloadUrl, isRealFile);
-                }
-            } else {
-                alert("❌ ओहो भाई! कॉइन्स कम हैं। ऊपर 'TOP POP TASK' पूरा करके पहले कॉइन्स क्लेम कर लो!");
-            }
-        }
-
-        function runDownloadScan(appId, downloadUrl, isRealFile) {
+            
             const scanBox = document.getElementById(`scan-${appId}`);
             const scanBar = document.getElementById(`bar-${appId}`);
             const scanText = document.getElementById(`scan-text-${appId}`);
@@ -432,42 +307,24 @@
             let interval = setInterval(() => {
                 progress += 5;
                 scanBar.style.width = progress + '%';
-                if(progress === 30) scanText.textContent = "🛡️ Verifying signatures...";
-                if(progress === 60) scanText.textContent = "⚙️ Injecting safe patch...";
-                if(progress === 90) scanText.textContent = "✅ Clean! Starting Download...";
+                if(progress === 30) scanText.textContent = "🛡️ MediaFire Secure Connect...";
+                if(progress === 70) scanText.textContent = "⚡ Bypassing high-speed limit...";
                 
                 if (progress >= 100) {
                     clearInterval(interval);
                     setTimeout(() => {
                         scanBox.style.display = 'none';
                         scanBar.style.width = '0%';
-                        scanText.textContent = "🔍 Scanning file...";
-                        if (isRealFile) { window.location.href = downloadUrl; } else { alert("🚀 आपका मोड फाइल सफलतापूर्वक डाउनलोड हो गया!"); }
-                    }, 800);
+                        scanText.textContent = "🔍 Scanning MediaFire File...";
+                        window.open(downloadUrl, '_blank');
+                    }, 500);
                 }
-            }, 100);
+            }, 600);
         }
 
-        function updateAppButtons() {
-            const apps = ['app1', 'app3', 'app4'];
-            apps.forEach(id => {
-                const btn = document.getElementById(`btn-${id}`);
-                if (btn) {
-                    if (purchasedApps.includes(id)) {
-                        btn.textContent = 'DOWNLOAD APK';
-                        btn.style.backgroundColor = '#00ff00'; btn.style.borderColor = '#00ff00'; btn.style.color = '#000'; btn.style.boxShadow = '0 0 15px #00ff00';
-                    } else {
-                        btn.textContent = 'UNLOCK APK';
-                        btn.style.backgroundColor = '#ff0000'; btn.style.borderColor = '#ff0000'; btn.style.color = '#fff'; btn.style.boxShadow = '0 0 5px #ff0000';
-                    }
-                }
-            });
-        }
-        updateAppButtons();
-
+        // THEME TOGGLE (LIGHT / DARK)
         const themeBtn = document.getElementById('themeBtn');
         themeBtn.addEventListener('click', () => {
-            playBeep();
             const currentTheme = document.documentElement.getAttribute('data-theme');
             if (currentTheme === 'light') {
                 document.documentElement.setAttribute('data-theme', 'dark');
@@ -478,6 +335,7 @@
             }
         });
 
+        // REAL-TIME SEARCH FILTER
         const searchInput = document.getElementById('searchInput');
         searchInput.addEventListener('input', (e) => {
             const searchText = e.target.value.toLowerCase().trim();
@@ -486,32 +344,6 @@
                 card.style.display = appTitle.includes(searchText) ? 'flex' : 'none';
             });
         });
-
-        let votes = [32, 54, 21];
-        function vote(optionIndex) {
-            playBeep(); votes[optionIndex - 1] += 1;
-            const totalVotes = votes[0] + votes[1] + votes[2];
-            for(let i = 1; i <= 3; i++) {
-                const percent = Math.round((votes[i - 1] / totalVotes) * 100);
-                document.getElementById(`percent${i}`).textContent = percent + '%';
-                document.getElementById(`bar${i}`).style.width = percent + '%';
-            }
-        }
-
-        function toggleChat() { document.getElementById('chatBox').style.display = (document.getElementById('chatBox').style.display === 'flex') ? 'none' : 'flex'; }
-        function handleChat(event) {
-            if (event.key === 'Enter' && event.target.value.trim() !== "") {
-                playBeep(); const txt = event.target.value; event.target.value = "";
-                const chatMessages = document.getElementById('chatMessages');
-                const uMsg = document.createElement('div'); uMsg.className = 'msg'; uMsg.style.alignSelf = 'flex-end'; uMsg.style.backgroundColor = '#00ff00'; uMsg.style.color = '#000'; uMsg.textContent = txt;
-                chatMessages.appendChild(uMsg);
-                setTimeout(() => {
-                    const sMsg = document.createElement('div'); sMsg.className = 'msg system'; sMsg.textContent = "Complete tasks to earn coins, bro! Priyanshu Admin is live.";
-                    chatMessages.appendChild(sMsg); playBeep(); chatMessages.scrollTop = chatMessages.scrollHeight;
-                }, 1000);
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
-        }
     </script>
 </body>
 </html>
