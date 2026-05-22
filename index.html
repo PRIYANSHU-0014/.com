@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <meta name="google-site-verification" content="HSRkqR7QAu4zSGi_w5FsyjR1IaOVakvPj0vuRiEivQg" />
+    <meta name="google-site-verification" content="uWA6wakV4sIczcNd8zEtFfNUar2DLCGJ7dJ2R2tzZQI" />
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
 
     <title>Priyanshu Exploit - Premium Android MOD Apps & Gaming Tools</title>
     <meta name="description" content="Priyanshu Exploit is the ultimate premium station for Android MOD APKs, Termux tools, Free Fire hacks, and BGMI GFX tools. Free download now!">
@@ -44,17 +46,6 @@
         #matrixCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; display: block; }
         [data-theme="light"] #matrixCanvas { display: none; }
 
-        /* 🔥 HACKER POPUP MODAL WINDOW */
-        .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.3s ease; }
-        .popup-box { background: #0d0d0d; border: 2px solid #00ff00; border-radius: 15px; max-width: 400px; width: 85%; padding: 25px; box-shadow: 0 0 25px #00ff00; text-align: center; position: relative; animation: popupSpawn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        @keyframes popupSpawn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-        .popup-icon { font-size: 40px; margin-bottom: 10px; animation: pulse 1.5s infinite; }
-        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); text-shadow: 0 0 15px #ff0000; } 100% { transform: scale(1); } }
-        .popup-title { color: #ff0000; font-size: 20px; font-weight: 900; letter-spacing: 2px; margin-bottom: 12px; text-shadow: 0 0 5px #ff0000; }
-        .popup-msg { color: #ffffff; font-size: 14px; line-height: 1.5; margin-bottom: 20px; font-weight: 500; }
-        .popup-btn { background: #00ff00; color: #000; border: none; padding: 12px 30px; font-weight: 900; font-size: 13px; letter-spacing: 1px; border-radius: 25px; cursor: pointer; box-shadow: 0 0 10px #00ff00; transition: 0.2s; width: 100%; }
-        .popup-btn:hover { background: #00cc00; box-shadow: 0 0 20px #00ff00; transform: translateY(-2px); }
-
         .notice-ticker { background: #ff0000; color: #fff; font-size: 12px; font-weight: bold; padding: 5px 0; overflow: hidden; white-space: nowrap; box-shadow: 0 2px 10px rgba(255,0,0,0.5); z-index: 10; position: relative; }
         .notice-ticker marquee { vertical-align: middle; }
 
@@ -75,6 +66,13 @@
             letter-spacing: 3px;
         }
         header p { margin: 10px 0 0 0; color: var(--text-sub); font-size: 14px; }
+
+        /* 👑 GOOGLE LOGIN SECTIONS STYLE */
+        .login-bar { background: rgba(0,0,0,0.8); border-bottom: 1px solid #333; padding: 10px; display: flex; justify-content: center; align-items: center; gap: 15px; }
+        .user-profile { display: none; align-items: center; gap: 10px; background: #111; padding: 5px 15px; border-radius: 20px; border: 1px solid #00ff00; }
+        .user-avatar { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #00ff00; }
+        .user-name { font-size: 13px; font-weight: bold; color: #00ff00; }
+        .logout-btn { background: #ff0000; color: #fff; border: none; padding: 4px 10px; border-radius: 10px; font-size: 11px; cursor: pointer; font-weight: bold; }
 
         .control-panel { display: flex; justify-content: space-between; align-items: center; max-width: 500px; margin: 15px auto; padding: 0 15px; }
         .theme-toggle-btn { background-color: #000; color: #00ff00; border: 2px solid #00ff00; padding: 8px 15px; font-weight: bold; cursor: pointer; border-radius: 20px; font-size: 12px; transition: 0.2s; box-shadow: var(--neon-glow); }
@@ -105,6 +103,13 @@
         .scan-text { font-size: 11px; color: #00ff00; font-weight: bold; margin-bottom: 5px; text-align: left; }
         .scan-bar { height: 10px; background: #00ff00; width: 0%; border-radius: 5px; transition: width 0.1s linear; box-shadow: 0 0 8px #00ff00; }
 
+        .termux-container { background: rgba(15, 15, 15, 0.9); border: 2px dashed #00ff00; border-radius: 12px; padding: 20px; margin-top: 35px; text-align: left; backdrop-filter: blur(5px); box-shadow: var(--neon-glow); }
+        .termux-title { font-size: 18px; font-weight: bold; color: #ff0000; text-shadow: 0 0 5px #ff0000; margin-bottom: 15px; border-bottom: 1px dashed #00ff00; padding-bottom: 5px; }
+        .command-box { display: flex; justify-content: space-between; align-items: center; background: #000; border: 1px solid #333; padding: 10px 15px; border-radius: 8px; margin-bottom: 12px; font-family: monospace; font-size: 13px; color: #00ff00; }
+        .command-text { overflow-x: auto; white-space: nowrap; max-width: 75%; }
+        .copy-btn { background: #00ff00; color: #000; border: none; padding: 6px 12px; border-radius: 4px; font-weight: bold; font-size: 11px; cursor: pointer; font-family: sans-serif; transition: 0.2s; }
+        .copy-btn:hover { background: #fff; box-shadow: 0 0 10px #fff; }
+
         .live-counter-box { margin: 20px auto; max-width: 200px; background: rgba(0,0,0,0.8); border: 1px solid #00ff00; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; box-shadow: var(--neon-glow); }
 
         footer { margin-top: 50px; padding: 25px; border-top: 2px solid #00ff00; background: rgba(5, 5, 5, 0.9); box-shadow: 0 -4px 15px rgba(0, 255, 0, 0.2); z-index: 5; position: relative; }
@@ -114,16 +119,19 @@
         .social-icon { width: 18px; height: 18px; margin-right: 8px; vertical-align: middle; }
     </style>
 </head>
-<body> <div class="popup-overlay" id="welcomePopup">
-        <div class="popup-box">
-            <div class="popup-icon">🏴‍☠️</div>
-            <div class="popup-title">PRIYANSHU EXPLOIT</div>
-            <div class="popup-msg">
-                Welcome to the Ultimate Station! <br>
-                🔥 All Premium MOD APKs & Tools are updated daily. <br>
-                👉 Please follow on Instagram for instant app requests!
-            </div>
-            <button class="popup-btn" onclick="closePopup()">ENTER SYSTEM</button>
+<body>
+
+    <div class="login-bar">
+        <div id="g_id_onload"
+             data-client_id="YOUR_GOOGLE_CLIENT_ID_HERE.apps.googleusercontent.com"
+             data-callback="handleCredentialResponse">
+        </div>
+        <div class="g_id_signin" data-type="standard"></div>
+
+        <div class="user-profile" id="userProfile">
+            <img class="user-avatar" id="userPic" src="" alt="User">
+            <span class="user-name" id="userName">Priyanshu</span>
+            <button class="logout-btn" onclick="logoutGoogle()">Logout</button>
         </div>
     </div>
 
@@ -210,7 +218,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9vV_g772kXw5j_6R5N-q8Vf6S7H5j8_X_mH9z_v7C-O8U_M6G_E4k9Z8O8K9p_L-rZQ=w240-h2404" alt="FRAG">
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h24056" alt="FRAG">
                     <div class="app-title">FRAG Pro Shooter</div>
                     <div class="app-category">Action Game</div>
                     <div class="app-stats">💾 228 MB | v4.21.0</div>
@@ -226,7 +234,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9vV_g772kXw5j_6R5N-q8Vf6S7H5j8_X_mH9z_v7C-O8U_M6G_E4k9Z8O8K9p_L-rZQ=w240-h2405" alt="Tank Stars">
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h24057" alt="Tank Stars">
                     <div class="app-title">Tank Stars MOD</div>
                     <div class="app-category">Strategy Game</div>
                     <div class="app-stats">💾 179 MB | v2.19.200</div>
@@ -242,7 +250,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9vV_g772kXw5j_6R5N-q8Vf6S7H5j8_X_mH9z_v7C-O8U_M6G_E4k9Z8O8K9p_L-rZQ=w240-h2406" alt="Rope Hero">
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h24058" alt="Rope Hero">
                     <div class="app-title">Rope Hero Vice MOD</div>
                     <div class="app-category">Open World Game</div>
                     <div class="app-stats">💾 158 MB | v7.1.6</div>
@@ -258,7 +266,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9vV_g772kXw5j_6R5N-q8Vf6S7H5j8_X_mH9z_v7C-O8U_M6G_E4k9Z8O8K9p_L-rZQ=w240-h2407" alt="Subway Surfers">
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h24059" alt="Subway Surfers">
                     <div class="app-title">Subway Surfers MOD</div>
                     <div class="app-category">Endless Runner</div>
                     <div class="app-stats">💾 251 MB | v3.63.10</div>
@@ -274,7 +282,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9vV_g772kXw5j_6R5N-q8Vf6S7H5j8_X_mH9z_v7C-O8U_M6G_E4k9Z8O8K9p_L-rZQ=w240-h2408" alt="Extreme Car">
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h24060" alt="Extreme Car">
                     <div class="app-title">Extreme Car Driving</div>
                     <div class="app-category">Racing Game</div>
                     <div class="app-stats">💾 158 MB | v7.11.2</div>
@@ -290,7 +298,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9vV_g772kXw5j_6R5N-q8Vf6S7H5j8_X_mH9z_v7C-O8U_M6G_E4k9Z8O8K9p_L-rZQ=w240-h2409" alt="Turbo Driving">
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h24061" alt="Turbo Driving">
                     <div class="app-title">Turbo Driving Racing</div>
                     <div class="app-category">3D Racing Game</div>
                     <div class="app-stats">💾 38.63 MB | v3.3</div>
@@ -304,6 +312,25 @@
                 </div>
             </div>
 
+        </div>
+
+        <div class="termux-container">
+            <div class="termux-title">🏴‍☠️ TERMUX EXPLOIT COMMAND STATION</div>
+            
+            <div class="command-box">
+                <div class="command-text" id="cmd1">termux-setup-storage</div>
+                <button class="copy-btn" onclick="copyCommand('cmd1')">COPY</button>
+            </div>
+            
+            <div class="command-box">
+                <div class="command-text" id="cmd2">pkg update && pkg upgrade -y</div>
+                <button class="copy-btn" onclick="copyCommand('cmd2')">COPY</button>
+            </div>
+            
+            <div class="command-box">
+                <div class="command-text" id="cmd3">pkg install python git php -y</div>
+                <button class="copy-btn" onclick="copyCommand('cmd3')">COPY</button>
+            </div>
         </div>
 
         <div class="live-counter-box">
@@ -321,12 +348,40 @@
     </footer>
 
     <script>
-        // FUNCTION TO CLOSE SYSTEM POP-UP
-        function closePopup() {
-            document.getElementById('welcomePopup').style.opacity = '0';
-            setTimeout(() => {
-                document.getElementById('welcomePopup').style.display = 'none';
-            }, 300);
+        // 🔑 GOOGLE LOGIN BACKEND FUNCTIONS
+        function parseJwt(token) {
+            var base64Url = token.split('.')[1];
+            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+                return '%' + ('0' + c.charCodeAt(0).toString(16)).slice(-2);
+            }).join(''));
+            return JSON.parse(jsonPayload);
+        }
+
+        function handleCredentialResponse(response) {
+            const responsePayload = parseJwt(response.credential);
+            document.querySelector(".g_id_signin").style.display = "none";
+            const profile = document.getElementById("userProfile");
+            profile.style.display = "flex";
+            document.getElementById("userPic").src = responsePayload.picture;
+            document.getElementById("userName").textContent = responsePayload.name;
+            alert(`👋 Welcome ${responsePayload.name}! System Access Granted.`);
+        }
+
+        function logoutGoogle() {
+            google.accounts.id.disableAutoSelect();
+            document.getElementById("userProfile").style.display = "none";
+            document.querySelector(".g_id_signin").style.display = "block";
+            alert("🔒 Logged out successfully!");
+        }
+
+        function copyCommand(cmdId) {
+            const cmdText = document.getElementById(cmdId).textContent;
+            navigator.clipboard.writeText(cmdText).then(() => {
+                alert(`🚀 Command Copied Successfully!\n\n"${cmdText}"`);
+            }).catch(() => {
+                alert("❌ Copy failed! Please select and copy manually.");
+            });
         }
 
         // BACKGROUND MATRIX ANIMATION
@@ -358,7 +413,7 @@
             document.getElementById('liveCount').textContent = currentUsers;
         }, 4000);
 
-        // ADVANCED PERCENTAGE PROGRESS BAR & DOWNLOADING SIMULATION
+        // DOWNLOAD SIMULATION
         function runDownloadScan(appId, downloadUrl) {
             if (downloadUrl === 'placeholder') {
                 alert("❌ प्रियांशु भाई, पहले इस ऐप का मीडियाफायर लिंक लाकर कोड में सेट करो!");
@@ -418,7 +473,7 @@
             }, 300);
         }
 
-        // THEME TOGGLE (LIGHT / DARK)
+        // THEME TOGGLE
         const themeBtn = document.getElementById('themeBtn');
         themeBtn.addEventListener('click', () => {
             const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -431,7 +486,7 @@
             }
         });
 
-        // REAL-TIME SEARCH FILTER
+        // SEARCH FILTER
         const searchInput = document.getElementById('searchInput');
         searchInput.addEventListener('input', (e) => {
             const searchText = e.target.value.toLowerCase().trim();
