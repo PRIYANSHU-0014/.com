@@ -44,6 +44,20 @@
         #matrixCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; display: block; }
         [data-theme="light"] #matrixCanvas { display: none; }
 
+        /* मुख्य कंटेंट को ब्लर करने के लिए जब पॉप-अप खुला हो */
+        .blur-content { filter: blur(5px); pointer-events: none; transition: filter 0.3s ease; }
+
+        /* 🔥 HACKER POPUP MODAL WINDOW */
+        .popup-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.3s ease; }
+        .popup-box { background: #0d0d0d; border: 2px solid #00ff00; border-radius: 15px; max-width: 400px; width: 85%; padding: 25px; box-shadow: 0 0 25px #00ff00; text-align: center; position: relative; animation: popupSpawn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes popupSpawn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        .popup-icon { font-size: 40px; margin-bottom: 10px; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); text-shadow: 0 0 15px #ff0000; } 100% { transform: scale(1); } }
+        .popup-title { color: #ff0000; font-size: 20px; font-weight: 900; letter-spacing: 2px; margin-bottom: 12px; text-shadow: 0 0 5px #ff0000; }
+        .popup-msg { color: #ffffff; font-size: 14px; line-height: 1.5; margin-bottom: 20px; font-weight: 500; }
+        .popup-btn { background: #00ff00; color: #000; border: none; padding: 12px 30px; font-weight: 900; font-size: 13px; letter-spacing: 1px; border-radius: 25px; cursor: pointer; box-shadow: 0 0 10px #00ff00; transition: 0.2s; width: 100%; }
+        .popup-btn:hover { background: #00cc00; box-shadow: 0 0 20px #00ff00; transform: translateY(-2px); }
+
         .notice-ticker { background: #ff0000; color: #fff; font-size: 12px; font-weight: bold; padding: 5px 0; overflow: hidden; white-space: nowrap; box-shadow: 0 2px 10px rgba(255,0,0,0.5); z-index: 10; position: relative; }
         .notice-ticker marquee { vertical-align: middle; }
 
@@ -96,7 +110,6 @@
 
         .live-counter-box { margin: 20px auto; max-width: 200px; background: rgba(0,0,0,0.8); border: 1px solid #00ff00; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; box-shadow: var(--neon-glow); }
 
-        /* 🔥 NEW GLOWING SOCIAL FOOTER SECTION */
         footer { margin-top: 50px; padding: 25px; border-top: 2px solid #00ff00; background: rgba(5, 5, 5, 0.9); box-shadow: 0 -4px 15px rgba(0, 255, 0, 0.2); z-index: 5; position: relative; }
         .footer-title { font-size: 16px; font-weight: bold; margin-bottom: 12px; letter-spacing: 1px; color: #ff0000; text-shadow: 0 0 5px #ff0000; }
         .social-btn { display: inline-flex; align-items: center; justify-content: center; background: #000; color: #00ff00; border: 2px solid #00ff00; padding: 10px 20px; font-weight: bold; text-decoration: none; border-radius: 25px; font-size: 13px; transition: 0.3s; box-shadow: var(--neon-glow); cursor: pointer; }
@@ -104,7 +117,18 @@
         .social-icon { width: 18px; height: 18px; margin-right: 8px; vertical-align: middle; }
     </style>
 </head>
-<body>
+<body class="blur-content" id="mainBody"> <div class="popup-overlay" id="welcomePopup">
+        <div class="popup-box">
+            <div class="popup-icon">🏴‍☠️</div>
+            <div class="popup-title">PRIYANSHU EXPLOIT</div>
+            <div class="popup-msg">
+                Welcome to the Ultimate Station! <br>
+                🔥 All Premium MOD APKs & Tools are updated daily. <br>
+                👉 Please follow on Instagram for instant app requests!
+            </div>
+            <button class="popup-btn" onclick="closePopup()">ENTER SYSTEM</button>
+        </div>
+    </div>
 
     <canvas id="matrixCanvas"></canvas>
 
@@ -189,7 +213,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h2402" alt="FRAG">
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h2408" alt="FRAG">
                     <div class="app-title">FRAG Pro Shooter</div>
                     <div class="app-category">Action Game</div>
                     <div class="app-stats">💾 228 MB | v4.21.0</div>
@@ -205,7 +229,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h2403" alt="Tank Stars">
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h2409" alt="Tank Stars">
                     <div class="app-title">Tank Stars MOD</div>
                     <div class="app-category">Strategy Game</div>
                     <div class="app-stats">💾 179 MB | v2.19.200</div>
@@ -221,7 +245,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h2404" alt="Rope Hero">
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9vV_g772kXw5j_6R5N-q8Vf6S7H5j8_X_mH9z_v7C-O8U_M6G_E4k9Z8O8K9p_L-rZQ=w240-h2400" alt="Rope Hero">
                     <div class="app-title">Rope Hero Vice MOD</div>
                     <div class="app-category">Open World Game</div>
                     <div class="app-stats">💾 158 MB | v7.1.6</div>
@@ -237,7 +261,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h2405" alt="Subway Surfers">
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9vV_g772kXw5j_6R5N-q8Vf6S7H5j8_X_mH9z_v7C-O8U_M6G_E4k9Z8O8K9p_L-rZQ=w240-h2401" alt="Subway Surfers">
                     <div class="app-title">Subway Surfers MOD</div>
                     <div class="app-category">Endless Runner</div>
                     <div class="app-stats">💾 251 MB | v3.63.10</div>
@@ -253,7 +277,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h2406" alt="Extreme Car">
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9vV_g772kXw5j_6R5N-q8Vf6S7H5j8_X_mH9z_v7C-O8U_M6G_E4k9Z8O8K9p_L-rZQ=w240-h2402" alt="Extreme Car">
                     <div class="app-title">Extreme Car Driving</div>
                     <div class="app-category">Racing Game</div>
                     <div class="app-stats">💾 158 MB | v7.11.2</div>
@@ -269,7 +293,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/b7L89H-PccV9V3K7zN_mR2b8vOQz76t6e9z-j7G4V2b8S_xX_E4m9Z8O8K9p_L-rZQ=w240-h2407" alt="Turbo Driving">
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9vV_g772kXw5j_6R5N-q8Vf6S7H5j8_X_mH9z_v7C-O8U_M6G_E4k9Z8O8K9p_L-rZQ=w240-h2403" alt="Turbo Driving">
                     <div class="app-title">Turbo Driving Racing</div>
                     <div class="app-category">3D Racing Game</div>
                     <div class="app-stats">💾 38.63 MB | v3.3</div>
@@ -300,6 +324,15 @@
     </footer>
 
     <script>
+        // FUNCTION TO CLOSE SYSTEM POP-UP
+        function closePopup() {
+            document.getElementById('welcomePopup').style.opacity = '0';
+            setTimeout(() => {
+                document.getElementById('welcomePopup').style.display = 'none';
+                document.getElementById('mainBody').classList.remove('blur-content'); // ब्लर हटाओ
+            }, 300);
+        }
+
         // BACKGROUND MATRIX ANIMATION
         const canvas = document.getElementById('matrixCanvas');
         const ctx = canvas.getContext('2d');
