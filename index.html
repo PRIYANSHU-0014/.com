@@ -24,6 +24,8 @@
             --search-bg: #151515;
             --search-text: #00ff00;
             --neon-glow: 0 0 10px #00ff00;
+            --btn-active: #00ff00;
+            --btn-active-text: #000000;
         }
 
         [data-theme="light"] {
@@ -37,6 +39,8 @@
             --search-bg: #ffffff;
             --search-text: #000000;
             --neon-glow: none;
+            --btn-active: #000000;
+            --btn-active-text: #ffffff;
         }
         
         body { background-color: var(--bg-body); color: var(--text-main); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; text-align: center; transition: background 0.3s, color 0.3s; position: relative; min-height: 100vh; overflow-x: hidden; }
@@ -71,8 +75,14 @@
         .container { padding: 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
         .ad-box { margin: 20px auto; width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; background-color: var(--ad-bg); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
 
-        .search-container { margin: 20px auto; max-width: 500px; padding: 0 10px; position: relative; z-index: 2; }
+        /* SEARCH & FILTER STYLES */
+        .search-container { margin: 20px auto 10px auto; max-width: 500px; padding: 0 10px; position: relative; z-index: 2; }
         .search-input { width: 100%; padding: 12px 20px; font-size: 16px; border: 2px solid var(--border-color); border-radius: 25px; background-color: var(--search-bg); color: var(--search-text); outline: none; box-shadow: var(--neon-glow); box-sizing: border-box; }
+
+        .filter-container { display: flex; justify-content: center; gap: 10px; margin: 15px auto 25px auto; max-width: 500px; padding: 0 10px; }
+        .filter-btn { background: #000; color: #00ff00; border: 2px solid #00ff00; padding: 8px 20px; font-weight: bold; font-size: 13px; cursor: pointer; border-radius: 20px; transition: 0.3s; box-shadow: var(--neon-glow); }
+        .filter-btn:hover { background: rgba(0, 255, 0, 0.2); }
+        .filter-btn.active { background: var(--btn-active); color: var(--btn-active-text); box-shadow: 0 0 15px #00ff00; }
 
         h2.section-title { text-align: left; color: var(--text-main); border-left: 4px solid #ff0000; padding-left: 10px; margin-top: 30px; font-size: 20px; text-shadow: var(--neon-glow); }
 
@@ -80,7 +90,6 @@
         .app-card { background-color: var(--bg-card); border-radius: 12px; padding: 15px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(5px); }
         .app-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px #00ff00; }
         
-        /* Icon styles for both SVG and regular Images */
         .app-icon, .app-icon-svg { width: 80px; height: 80px; margin: 0 auto 12px auto; border-radius: 18px; border: 2px solid var(--border-color); box-shadow: var(--neon-glow); display: block; object-fit: cover; background: #111; }
         
         .app-title { font-size: 15px; font-weight: bold; margin: 5px 0; color: var(--text-main); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
@@ -127,6 +136,12 @@
         <input type="text" id="searchInput" class="search-input" placeholder="Search apps or games...">
     </div>
 
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterItems('all', this)">⚡ ALL</button>
+        <button class="filter-btn" onclick="filterItems('app', this)">📱 APPS</button>
+        <button class="filter-btn" onclick="filterItems('game', this)">🎮 GAMES</button>
+    </div>
+
     <div class="container">
 
         <div class="ad-box">
@@ -140,7 +155,7 @@
         
         <div class="apps-grid" id="appsGrid">
             
-            <div class="app-card">
+            <div class="app-card" data-type="app">
                 <div>
                     <svg class="app-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                         <defs>
@@ -167,7 +182,7 @@
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" data-type="app">
                 <div>
                     <img class="app-icon" src="https://img.icons8.com/color/144/video-editing.png" alt="CapCut">
                     <div class="app-title">CapCut Pro MOD</div>
@@ -183,7 +198,7 @@
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" data-type="game">
                 <div>
                     <img class="app-icon" src="https://img.icons8.com/color/144/stickman.png" alt="Stickman Party">
                     <div class="app-title">Stickman Party MOD</div>
@@ -199,7 +214,7 @@
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" data-type="game">
                 <div>
                     <img class="app-icon" src="https://img.icons8.com/color/144/bullseye.png" alt="FRAG">
                     <div class="app-title">FRAG Pro Shooter</div>
@@ -215,7 +230,7 @@
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" data-type="game">
                 <div>
                     <img class="app-icon" src="https://img.icons8.com/color/144/tank.png" alt="Tank Stars">
                     <div class="app-title">Tank Stars MOD</div>
@@ -231,7 +246,7 @@
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" data-type="game">
                 <div>
                     <img class="app-icon" src="https://img.icons8.com/color/144/superhero.png" alt="Rope Hero">
                     <div class="app-title">Rope Hero Vice MOD</div>
@@ -247,7 +262,7 @@
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" data-type="game">
                 <div>
                     <img class="app-icon" src="https://img.icons8.com/color/144/subway.png" alt="Subway Surfers">
                     <div class="app-title">Subway Surfers MOD</div>
@@ -263,7 +278,7 @@
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" data-type="game">
                 <div>
                     <img class="app-icon" src="https://img.icons8.com/color/144/car.png" alt="Extreme Car">
                     <div class="app-title">Extreme Car Driving</div>
@@ -279,7 +294,7 @@
                 </div>
             </div>
 
-            <div class="app-card">
+            <div class="app-card" data-type="game">
                 <div>
                     <img class="app-icon" src="https://img.icons8.com/color/144/sports-car.png" alt="Turbo Driving">
                     <div class="app-title">Turbo Driving Racing</div>
@@ -417,15 +432,43 @@
             });
         }
 
-        // SEARCH FILTER
+        // 🎛️ ADVANCED FILTER + SEARCH COMBINED LOGIC
+        let currentFilter = 'all';
+
+        function filterItems(type, buttonElement) {
+            // Update active state of buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            buttonElement.classList.add('active');
+            
+            currentFilter = type;
+            applySearchAndFilter();
+        }
+
         const searchInput = document.getElementById('searchInput');
         if(searchInput) {
-            searchInput.addEventListener('input', (e) => {
-                const searchText = e.target.value.toLowerCase().trim();
-                document.querySelectorAll('.app-card').forEach(card => {
-                    const appTitle = card.querySelector('.app-title').textContent.toLowerCase();
-                    card.style.display = appTitle.includes(searchText) ? 'flex' : 'none';
-                });
+            searchInput.addEventListener('input', () => {
+                applySearchAndFilter();
+            });
+        }
+
+        function applySearchAndFilter() {
+            const searchText = searchInput ? searchInput.value.toLowerCase().trim() : '';
+            
+            document.querySelectorAll('.app-card').forEach(card => {
+                const appTitle = card.querySelector('.app-title').textContent.toLowerCase();
+                const appType = card.getAttribute('data-type');
+                
+                // Check Filter Match
+                const matchesFilter = (currentFilter === 'all' || appType === currentFilter);
+                // Check Search Match
+                const matchesSearch = appTitle.includes(searchText);
+                
+                // Show only if BOTH conditions match
+                if (matchesFilter && matchesSearch) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         }
     </script>
