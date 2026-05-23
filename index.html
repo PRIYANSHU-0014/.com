@@ -80,7 +80,9 @@
         .app-card { background-color: var(--bg-card); border-radius: 12px; padding: 15px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(5px); }
         .app-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px #00ff00; }
         
-        .app-icon { width: 80px; height: 80px; margin: 0 auto 12px auto; border-radius: 18px; overflow: hidden; border: 2px solid var(--border-color); box-shadow: var(--neon-glow); display: block; object-fit: cover; background: #111; }
+        /* Icon styles for both SVG and regular Images */
+        .app-icon, .app-icon-svg { width: 80px; height: 80px; margin: 0 auto 12px auto; border-radius: 18px; border: 2px solid var(--border-color); box-shadow: var(--neon-glow); display: block; object-fit: cover; background: #111; }
+        
         .app-title { font-size: 15px; font-weight: bold; margin: 5px 0; color: var(--text-main); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .app-category { font-size: 12px; color: #ff0000; margin-bottom: 5px; font-weight: 500; }
         .app-stats { font-size: 11px; color: var(--text-sub); margin-bottom: 10px; }
@@ -140,7 +142,18 @@
             
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAMAAADU1//xAAAANlBMVEX///9jXU6zrbX///+4sbTDvLy4sre7tbX///+7srS6tLS6s7K7s7K7s7K6srL7+fn6+vn///9X8kREAAAADXRSTlMA0u/51+9T6kU8vG7sAAAA/klEQVR4AuzZIRIAMAzEsOb76rYdYmAgcWf5vB399eN1bY4243U5Xp3f5XVtjm5zm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm5ubm/4B9fXpW888fAAAAABJRU5ErkJggg==" alt="Picsart Gold">
+                    <svg class="app-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="picsartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#d500f9;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#aa00ff;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="100" height="100" rx="18" fill="url(#picsartGrad)"/>
+                        <path d="M38,25 C48,25 56,31 56,41 C56,51 48,57 38,57 L38,75 L26,75 L26,25 Z M38,36 L38,46 C42,46 44,44 44,41 C44,38 42,36 38,36 Z" fill="#ffffff"/>
+                        <circle cx="64" cy="41" r="9" fill="#ffffff"/>
+                    </svg>
                     <div class="app-title">PicsArt Gold MOD</div>
                     <div class="app-category">Photo Editor</div>
                     <div class="app-stats">💾 83.99 MB | v29.4.5</div>
@@ -156,7 +169,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6A7kC8I-2S-6bL_qY2Vv08DclbXWb3oAomw&s" alt="CapCut">
+                    <img class="app-icon" src="https://img.icons8.com/color/144/video-editing.png" alt="CapCut">
                     <div class="app-title">CapCut Pro MOD</div>
                     <div class="app-category">Video Editor</div>
                     <div class="app-stats">💾 303 MB | v17.9.0</div>
@@ -172,7 +185,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/49S6vL79vG9XFpU1vRcltq_8vF_0w6v1X9b0B7vB_3vRcltq_8vF_0w6v1X9b0B7vB_3vR=w240-h240" alt="Stickman Party">
+                    <img class="app-icon" src="https://img.icons8.com/color/144/stickman.png" alt="Stickman Party">
                     <div class="app-title">Stickman Party MOD</div>
                     <div class="app-category">Arcade Game</div>
                     <div class="app-stats">💾 132 MB | v2.4.9.2</div>
@@ -188,7 +201,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/vD47R9_2M6qR5D-5C-6bL_qY2Vv08DclbXWb3oAomw=w240-h240" onerror="this.src='https://img.icons8.com/color/144/bullseye.png'" alt="FRAG">
+                    <img class="app-icon" src="https://img.icons8.com/color/144/bullseye.png" alt="FRAG">
                     <div class="app-title">FRAG Pro Shooter</div>
                     <div class="app-category">Action Game</div>
                     <div class="app-stats">💾 228 MB | v4.21.0</div>
@@ -204,7 +217,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/7vB_3vRcltq_8vF_0w6v1X9b0B7vB_3vRcltq_8vF_0w6v1X9b0B7vB_3vR=w240-h240" onerror="this.src='https://img.icons8.com/color/144/tank.png'" alt="Tank Stars">
+                    <img class="app-icon" src="https://img.icons8.com/color/144/tank.png" alt="Tank Stars">
                     <div class="app-title">Tank Stars MOD</div>
                     <div class="app-category">Strategy Game</div>
                     <div class="app-stats">💾 179 MB | v2.19.200</div>
@@ -220,7 +233,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/8vF_0w6v1X9b0B7vB_3vRcltq_8vF_0w6v1X9b0B7vB_3vRcltq_8vF_0w6v1=w240-h240" onerror="this.src='https://img.icons8.com/color/144/superhero.png'" alt="Rope Hero">
+                    <img class="app-icon" src="https://img.icons8.com/color/144/superhero.png" alt="Rope Hero">
                     <div class="app-title">Rope Hero Vice MOD</div>
                     <div class="app-category">Open World Game</div>
                     <div class="app-stats">💾 158 MB | v7.1.6</div>
@@ -236,7 +249,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9vB_3vRcltq_8vF_0w6v1X9b0B7vB_3vRcltq_8vF_0w6v1X9b0B7vB_3vR=w240-h240" onerror="this.src='https://img.icons8.com/color/144/subway.png'" alt="Subway Surfers">
+                    <img class="app-icon" src="https://img.icons8.com/color/144/subway.png" alt="Subway Surfers">
                     <div class="app-title">Subway Surfers MOD</div>
                     <div class="app-category">Endless Runner</div>
                     <div class="app-stats">💾 251 MB | v3.63.10</div>
@@ -252,7 +265,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/6v1X9b0B7vB_3vRcltq_8vF_0w6v1X9b0B7vB_3vRcltq_8vF_0w6v1X9b=w240-h240" onerror="this.src='https://img.icons8.com/color/144/car.png'" alt="Extreme Car">
+                    <img class="app-icon" src="https://img.icons8.com/color/144/car.png" alt="Extreme Car">
                     <div class="app-title">Extreme Car Driving</div>
                     <div class="app-category">Racing Game</div>
                     <div class="app-stats">💾 158 MB | v7.11.2</div>
@@ -268,7 +281,7 @@
 
             <div class="app-card">
                 <div>
-                    <img class="app-icon" src="https://play-lh.googleusercontent.com/3vRcltq_8vF_0w6v1X9b0B7vB_3vRcltq_8vF_0w6v1X9b0B7vB_3vR=w240-h240" onerror="this.src='https://img.icons8.com/color/144/sports-car.png'" alt="Turbo Driving">
+                    <img class="app-icon" src="https://img.icons8.com/color/144/sports-car.png" alt="Turbo Driving">
                     <div class="app-title">Turbo Driving Racing</div>
                     <div class="app-category">Racing Game</div>
                     <div class="app-stats">💾 38.63 MB | v3.3</div>
