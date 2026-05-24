@@ -89,7 +89,7 @@
         .app-card { background-color: var(--bg-card); border-radius: 12px; padding: 15px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(5px); }
         .app-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px #00ff00; }
         
-        .app-icon-svg { width: 80px; height: 80px; margin: 0 auto 12px auto; border-radius: 18px; border: 2px solid var(--border-color); box-shadow: var(--neon-glow); display: block; background: #111; }
+        .app-icon { width: 80px; height: 80px; margin: 0 auto 12px auto; border-radius: 18px; border: 2px solid var(--border-color); box-shadow: var(--neon-glow); display: block; object-fit: cover; background: #111; }
         
         .app-title { font-size: 15px; font-weight: bold; margin: 5px 0; color: var(--text-main); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
         .app-category { font-size: 12px; color: #ff0000; margin-bottom: 5px; font-weight: 500; }
@@ -158,18 +158,7 @@
             
             <div class="app-card" data-type="app">
                 <div>
-                    <svg class="app-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <linearGradient id="picsartGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#00e5ff;stop-opacity:1" />
-                                <stop offset="50%" style="stop-color:#d500f9;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#aa00ff;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <rect width="100" height="100" rx="18" fill="url(#picsartGrad)"/>
-                        <path d="M38,25 C48,25 56,31 56,41 C56,51 48,57 38,57 L38,75 L26,75 L26,25 Z M38,36 L38,46 C42,46 44,44 44,41 C44,38 42,36 38,36 Z" fill="#ffffff"/>
-                        <circle cx="64" cy="41" r="9" fill="#ffffff"/>
-                    </svg>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/97S96vdaO6WI9U9fR6b-K69B79u6L_M-6Y36R7vTsh9O9uY-B9P8Wq5bXW5O2e9FwA=w240-h240-rw" alt="PicsArt">
                     <div class="app-title">PicsArt Gold MOD</div>
                     <div class="app-category">Photo Editor</div>
                     <div class="app-stats">💾 83.99 MB | v29.4.5</div>
@@ -185,11 +174,7 @@
 
             <div class="app-card" data-type="app">
                 <div>
-                    <svg class="app-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" rx="18" fill="#000000"/>
-                        <circle cx="50" cy="50" r="25" fill="none" stroke="#00ff00" stroke-width="6"/>
-                        <path d="M40,50 L60,35 L60,65 Z" fill="#00ff00"/>
-                    </svg>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/Rmo76ZpZgLdfaVb_99mS8ZzO_XbS6_wEoxSgkaZ0L76p5a1S3pG66XW1mU-9v20G-Q=w240-h240-rw" alt="CapCut">
                     <div class="app-title">CapCut Pro MOD</div>
                     <div class="app-category">Video Editor</div>
                     <div class="app-stats">💾 303 MB | v17.9.0</div>
@@ -205,11 +190,7 @@
 
             <div class="app-card" data-type="game">
                 <div>
-                    <svg class="app-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" rx="18" fill="#1a1a2e"/>
-                        <circle cx="50" cy="35" r="12" fill="#ff0055"/>
-                        <path d="M50,47 L50,70 M50,55 L35,45 M50,55 L65,45 M50,70 L40,85 M50,70 L60,85" stroke="#ff0055" stroke-width="6" stroke-linecap="round"/>
-                    </svg>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/4g_NfVv33zDdf0RAn6f_eZ9g7Nf57tO-yGv3S7vF5hX9-YV_Cg-9U6v_R9S_0vD3nA=w240-h240-rw" alt="Stickman Party">
                     <div class="app-title">Stickman Party MOD</div>
                     <div class="app-category">Arcade Game</div>
                     <div class="app-stats">💾 132 MB | v2.4.9.2</div>
@@ -225,12 +206,7 @@
 
             <div class="app-card" data-type="game">
                 <div>
-                    <svg class="app-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" rx="18" fill="#111111"/>
-                        <circle cx="50" cy="50" r="25" fill="none" stroke="#ff0000" stroke-width="6"/>
-                        <circle cx="50" cy="50" r="12" fill="none" stroke="#ff0000" stroke-width="3"/>
-                        <path d="M50,15 L50,85 M15,50 L85,50" stroke="#ff0000" stroke-width="4"/>
-                    </svg>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/rn4S07u_5X01m4e6v35aR7v_B9S_G8vD3nA6XW1mU-9v20G-Q-z_eZ9g7Nf57tO-yGv3S=w240-h240-rw" alt="FRAG">
                     <div class="app-title">FRAG Pro Shooter</div>
                     <div class="app-category">Action Game</div>
                     <div class="app-stats">💾 228 MB | v4.21.0</div>
@@ -246,15 +222,7 @@
 
             <div class="app-card" data-type="game">
                 <div>
-                    <svg class="app-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" rx="18" fill="#2d4059"/>
-                        <path d="M30,65 L70,65 L65,45 L35,45 Z" fill="#ffb400"/>
-                        <rect x="40" y="35" width="20" height="10" rx="3" fill="#de7119"/>
-                        <path d="M55,40 L85,40" stroke="#de7119" stroke-width="6" stroke-linecap="round"/>
-                        <circle cx="37" cy="70" r="6" fill="#111"/>
-                        <circle cx="50" cy="70" r="6" fill="#111"/>
-                        <circle cx="63" cy="70" r="6" fill="#111"/>
-                    </svg>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9n4S07u_5X01m4e6v35aR7v_B9S_G8vD3nA6XW1mU-9v20G-Q-z_eZ9g7Nf57tO-yGv3S=w240-h240-rw" alt="Tank Stars">
                     <div class="app-title">Tank Stars MOD</div>
                     <div class="app-category">Strategy Game</div>
                     <div class="app-stats">💾 179 MB | v2.19.200</div>
@@ -270,12 +238,7 @@
 
             <div class="app-card" data-type="game">
                 <div>
-                    <svg class="app-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" rx="18" fill="#0f4c81"/>
-                        <path d="M25,50 Q50,20 75,50 T25,50" fill="none" stroke="#00e5ff" stroke-width="5"/>
-                        <circle cx="50" cy="45" r="8" fill="#00e5ff"/>
-                        <path d="M35,65 L65,65 L50,80 Z" fill="#00e5ff"/>
-                    </svg>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/mS8ZzO_XbS6_wEoxSgkaZ0L76p5a1S3pG66XW1mU-9v20G-Q-rn4S07u_5X01m4e6v35aR=w240-h240-rw" alt="Rope Hero">
                     <div class="app-title">Rope Hero Vice MOD</div>
                     <div class="app-category">Open World Game</div>
                     <div class="app-stats">💾 158 MB | v7.1.6</div>
@@ -291,11 +254,7 @@
 
             <div class="app-card" data-type="game">
                 <div>
-                    <svg class="app-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" rx="18" fill="#ff6b6b"/>
-                        <path d="M20,75 L80,75 M30,55 L70,55 M40,35 L60,35" stroke="#f7d070" stroke-width="8" stroke-linecap="round"/>
-                        <rect x="42" y="20" width="16" height="40" rx="5" fill="#4ecdc4"/>
-                    </svg>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/694S07u_5X01m4e6v35aR7v_B9S_G8vD3nA6XW1mU-9v20G-Q-z_eZ9g7Nf57tO-yGv3=w240-h240-rw" alt="Subway Surfers">
                     <div class="app-title">Subway Surfers MOD</div>
                     <div class="app-category">Endless Runner</div>
                     <div class="app-stats">💾 251 MB | v3.63.10</div>
@@ -311,12 +270,7 @@
 
             <div class="app-card" data-type="game">
                 <div>
-                    <svg class="app-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" rx="18" fill="#222831"/>
-                        <path d="M25,60 L30,45 Q35,35 50,35 Q65,35 70,45 L75,60 H25 Z" fill="#00adb5"/>
-                        <circle cx="35" cy="65" r="8" fill="#eee"/>
-                        <circle cx="65" cy="65" r="8" fill="#eee"/>
-                    </svg>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/XbS6_wEoxSgkaZ0L76p5a1S3pG66XW1mU-9v20G-Q-mS8ZzO_LdfaVb_99mS8ZzO_Xb=w240-h240-rw" alt="Extreme Car">
                     <div class="app-title">Extreme Car Driving</div>
                     <div class="app-category">Racing Game</div>
                     <div class="app-stats">💾 158 MB | v7.11.2</div>
@@ -332,11 +286,7 @@
 
             <div class="app-card" data-type="game">
                 <div>
-                    <svg class="app-icon-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="100" height="100" rx="18" fill="#3f72af"/>
-                        <path d="M20,30 L50,15 L80,30 L50,85 Z" fill="#ffc7c7"/>
-                        <path d="M50,15 L50,85" stroke="#112d4e" stroke-width="4"/>
-                    </svg>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/9v20G-Q-z_eZ9g7Nf57tO-yGv3S-rn4S07u_5X01m4e6v35aR7v_B9S_G8vD3nA6XW=w240-h240-rw" alt="Turbo Driving">
                     <div class="app-title">Turbo Driving Racing</div>
                     <div class="app-category">Racing Game</div>
                     <div class="app-stats">💾 38.63 MB | v3.3</div>
@@ -499,6 +449,7 @@
                 const appType = card.getAttribute('data-type');
                 const matchesFilter = (currentFilter === 'all' || appType === currentFilter);
                 const matchesSearch = appTitle.includes(searchText);
+                
                 
                 if (matchesFilter && matchesSearch) {
                     card.style.display = 'flex';
