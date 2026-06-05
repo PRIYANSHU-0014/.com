@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="google-site-verification" content="uWA6wakV4sIczcNd8zEtFfNUar2DLCGJ7dJ2R2tzZQI" />
+
+    <title>Priyanshu Exploit - Premium Android MOD Apps & Gaming Tools</title>
+    <meta name="description" content="Priyanshu Exploit is the ultimate premium station for Android MOD APKs, Free Fire hacks, and BGMI GFX tools. Free download now!">
+    <meta name="keywords" content="Priyanshu Exploit, Priyanshu, Exploit, Premium APK, Free Fire Mod, BGMI GFX, Android Hacks">
+    <meta name="author" content="Priyanshu">
+    <meta name="robots" content="index, follow">
+    
+    <style>
+        :root {
+            --bg-body: #0a0a0a;
+            --bg-card: rgba(20, 20, 20, 0.85);
+            --text-main: #00ff00;
+            --text-sub: #888;
+            --border-color: #00ff00;
+            --header-bg: linear-gradient(135deg, #050505, #000000);
+            --ad-bg: #111111;
+            --search-bg: #151515;
+            --search-text: #00ff00;
+            --neon-glow: 0 0 10px #00ff00;
+            --btn-active: #00ff00;
+            --btn-active-text: #000000;
+        }
+
+        [data-theme="light"] {
+            --bg-body: #f4f6f9;
+            --bg-card: #ffffff;
+            --text-main: #1a1a1a;
+            --text-sub: #666;
+            --border-color: #e0e0e0;
+            --header-bg: linear-gradient(135deg, #ffffff, #e6e6e6);
+            --ad-bg: #ebeeec;
+            --search-bg: #ffffff;
+            --search-text: #000000;
+            --neon-glow: none;
+            --btn-active: #000000;
+            --btn-active-text: #ffffff;
+        }
+        
+        body { background-color: var(--bg-body); color: var(--text-main); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; text-align: center; transition: background 0.3s, color 0.3s; position: relative; min-height: 100vh; overflow-x: hidden; }
+        
+        #matrixCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; display: block; }
+        [data-theme="light"] #matrixCanvas { display: none; }
+
+        .notice-ticker { background: #ff0000; color: #fff; font-size: 12px; font-weight: bold; padding: 5px 0; overflow: hidden; white-space: nowrap; box-shadow: 0 2px 10px rgba(255,0,0,0.5); z-index: 10; position: relative; }
+        .notice-ticker marquee { vertical-align: middle; }
+
+        header { 
+            background: var(--header-bg); 
+            padding: 35px 15px; 
+            border-bottom: 3px solid #00ff00; 
+            position: relative; 
+            box-shadow: 0 4px 15px rgba(0, 255, 0, 0.3);
+            z-index: 5;
+        }
+        header h1 { 
+            margin: 0; 
+            font-size: 32px; 
+            font-weight: 900;
+            color: #00ff00; 
+            text-shadow: 0 0 10px #00ff00; 
+            letter-spacing: 3px;
+        }
+        header p { margin: 10px 0 0 0; color: var(--text-sub); font-size: 14px; }
+
+        .control-panel { display: flex; justify-content: space-between; align-items: center; max-width: 500px; margin: 15px auto; padding: 0 15px; }
+        .theme-toggle-btn { background-color: #000; color: #00ff00; border: 2px solid #00ff00; padding: 8px 15px; font-weight: bold; cursor: pointer; border-radius: 20px; font-size: 12px; transition: 0.2s; box-shadow: var(--neon-glow); }
+
+        .container { padding: 20px; max-width: 1200px; margin: 0 auto; position: relative; z-index: 2; }
+        .ad-box { margin: 20px auto; width: 100%; max-width: 728px; min-height: 90px; display: flex; justify-content: center; align-items: center; background-color: var(--ad-bg); border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
+
+        .search-container { margin: 20px auto 10px auto; max-width: 500px; padding: 0 10px; position: relative; z-index: 2; }
+        .search-input { width: 100%; padding: 12px 20px; font-size: 16px; border: 2px solid var(--border-color); border-radius: 25px; background-color: var(--search-bg); color: var(--search-text); outline: none; box-shadow: var(--neon-glow); box-sizing: border-box; }
+
+        .filter-container { display: flex; justify-content: center; gap: 10px; margin: 15px auto 25px auto; max-width: 500px; padding: 0 10px; }
+        .filter-btn { background: #000; color: #00ff00; border: 2px solid #00ff00; padding: 8px 20px; font-weight: bold; font-size: 13px; cursor: pointer; border-radius: 20px; transition: 0.3s; box-shadow: var(--neon-glow); }
+        .filter-btn:hover { background: rgba(0, 255, 0, 0.2); }
+        .filter-btn.active { background: var(--btn-active); color: var(--btn-active-text); box-shadow: 0 0 15px #00ff00; }
+
+        h2.section-title { text-align: left; color: var(--text-main); border-left: 4px solid #ff0000; padding-left: 10px; margin-top: 30px; font-size: 20px; text-shadow: var(--neon-glow); }
+
+        .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 20px; margin-top: 20px; }
+        .app-card { background-color: var(--bg-card); border-radius: 12px; padding: 15px; text-align: center; border: 1px solid var(--border-color); transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; justify-content: space-between; backdrop-filter: blur(5px); }
+        .app-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px #00ff00; }
+        
+        .app-icon { width: 80px; height: 80px; margin: 0 auto 12px auto; border-radius: 18px; border: 2px solid var(--border-color); box-shadow: var(--neon-glow); display: block; object-fit: cover; background: #111; }
+        
+        .app-title { font-size: 15px; font-weight: bold; margin: 5px 0; color: var(--text-main); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .app-category { font-size: 12px; color: #ff0000; margin-bottom: 5px; font-weight: 500; }
+        .app-stats { font-size: 11px; color: var(--text-sub); margin-bottom: 10px; }
+
+        .btn-group { display: flex; flex-direction: column; gap: 5px; margin-top: auto; }
+        
+        .download-btn { width: 100%; background-color: #ff0000; color: #ffffff; padding: 10px; text-decoration: none; font-size: 12px; font-weight: bold; border-radius: 6px; text-align: center; border: 1px solid #ff0000; box-shadow: 0 0 5px #ff0000; cursor: pointer; outline: none; }
+        .download-btn:hover { background-color: #cc0000; box-shadow: 0 0 15px #ff0000; }
+
+        .scan-container { display: none; margin: 15px auto; max-width: 95%; background: #111; border-radius: 10px; padding: 8px; border: 1px solid #00ff00; box-shadow: 0 0 10px rgba(0, 255, 0, 0.2); }
+        .scan-text { font-size: 11px; color: #00ff00; font-weight: bold; margin-bottom: 5px; text-align: left; }
+        .scan-bar { height: 10px; background: #00ff00; width: 0%; border-radius: 5px; transition: width 0.1s linear; box-shadow: 0 0 8px #00ff00; }
+
+        .live-counter-box { margin: 20px auto; max-width: 200px; background: rgba(0,0,0,0.8); border: 1px solid #00ff00; padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; box-shadow: var(--neon-glow); }
+
+        footer { margin-top: 50px; padding: 25px; border-top: 2px solid #00ff00; background: rgba(5, 5, 5, 0.9); box-shadow: 0 -4px 15px rgba(0, 255, 0, 0.2); z-index: 5; position: relative; }
+        .footer-title { font-size: 16px; font-weight: bold; margin-bottom: 12px; letter-spacing: 1px; color: #ff0000; text-shadow: 0 0 5px #ff0000; }
+        .social-btn { display: inline-flex; align-items: center; justify-content: center; background: #000; color: #00ff00; border: 2px solid #00ff00; padding: 10px 20px; font-weight: bold; text-decoration: none; border-radius: 25px; font-size: 13px; transition: 0.3s; box-shadow: var(--neon-glow); cursor: pointer; }
+        .social-btn:hover { background: #00ff00; color: #000; transform: scale(1.05); box-shadow: 0 0 20px #00ff00; }
+        .social-icon { width: 18px; height: 18px; margin-right: 8px; vertical-align: middle; }
+    </style>
+</head>
+<body>
+
+    <script src="https://pl29535108.effectivecpmnetwork.com/e7/e3/5a/e7e35a15e12ec1a4e6078d313db029ad.js"></script>
+
+    <canvas id="matrixCanvas"></canvas>
+
+    <div class="notice-ticker">
+        <marquee scrollamount="5">⚠️ NOTICE: All Premium MOD APKs are now 100% FREE! Powered by MediaFire Ultra-Fast Servers. Keep supporting Priyanshu Exploit! 🏴‍☠️</marquee>
+    </div>
+
+    <header>
+        <h1>🏴‍☠️ PRIYANSHU EXPLOIT 🏴‍☠️</h1>
+        <p>Premium Android MOD Apps & Gaming Tools Station</p>
+    </header>
+
+    <div class="control-panel">
+        <div></div>
+        <button class="theme-toggle-btn" id="themeBtn">🌓 LIGHT MODE</button>
+    </div>
+
+    <div class="search-container">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search apps or games...">
+    </div>
+
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterItems('all', this)">⚡ ALL</button>
+        <button class="filter-btn" onclick="filterItems('app', this)">📱 APPS</button>
+        <button class="filter-btn" onclick="filterItems('game', this)">🎮 GAMES</button>
+    </div>
+
+    <div class="container">
+
+        <div class="ad-box">
+            <script type="text/javascript">
+                atOptions = { 'key' : '6c0a601de70fd29478a1231dc4b383b3', 'format' : 'iframe', 'height' : 90, 'width' : 728, 'params' : {} };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/6c0a601de70fd29478a1231dc4b383b3/invoke.js"></script>
+        </div>
+
+        <h2 class="section-title">PREMIUM MOD APK & GAMES COLLECTION (FREE)</h2>
+        
+        <div class="apps-grid" id="appsGrid">
+            
+            <div class="app-card" data-type="app">
+                <div>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/RMRM-9wSgP2ALv889Y7_dfx1G_I1rcZcI-4vM3wM39_38xYF9L80N87Yg0fSgA=w240-h240-rw8" alt="PicsArt">
+                    <div class="app-title">PicsArt Gold MOD</div>
+                    <div class="app-category">Photo Editor</div>
+                    <div class="app-stats">💾 83.99 MB | v29.4.5</div>
+                </div>
+                <div class="btn-group">
+                    <div class="scan-container" id="scan-picsart">
+                        <div class="scan-text" id="scan-text-picsart">🔍 Checking Security...</div>
+                        <div class="scan-bar" id="bar-picsart"></div>
+                    </div>
+                    <button class="download-btn" id="btn-picsart" onclick="runDownloadScan('picsart', 'https://www.mediafire.com/file/n3hy9rhr8tglxdx/Picsart-Gold-29.4.5-MOD-APK-Premium-Unlocked-Lite.apk/file', 'PicsArt_Gold_MOD.apk')">DOWNLOAD</button>
+                </div>
+            </div>
+
+            <div class="app-card" data-type="app">
+                <div>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/RMRM-9wSgP2ALv889Y7_dfx1G_I1rcZcI-4vM3wM39_38xYF9L80N87Yg0fSgA=w240-h240-rw9" alt="CapCut">
+                    <div class="app-title">CapCut Pro MOD</div>
+                    <div class="app-category">Video Editor</div>
+                    <div class="app-stats">💾 303 MB | v17.9.0</div>
+                </div>
+                <div class="btn-group">
+                    <div class="scan-container" id="scan-capcut">
+                        <div class="scan-text" id="scan-text-capcut">🔍 Checking Security...</div>
+                        <div class="scan-bar" id="bar-capcut"></div>
+                    </div>
+                    <button class="download-btn" id="btn-capcut" onclick="runDownloadScan('capcut', 'https://www.mediafire.com/file/pxp9ycb208pd6i7/capcut_17.9.0-an1.com_%25281%2529.apk/file', 'CapCut_Pro_MOD.apk')">DOWNLOAD</button>
+                </div>
+            </div>
+
+            <div class="app-card" data-type="game">
+                <div>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/4rs7SIdfTbyUfDguorLclNrcv_b1S6f89S3alw7G90fSg089L64qVv89N87Yg0fSgA=w240-h240-rw0" alt="Stickman Party">
+                    <div class="app-title">Stickman Party MOD</div>
+                    <div class="app-category">Arcade Game</div>
+                    <div class="app-stats">💾 132 MB | v2.4.9.2</div>
+                </div>
+                <div class="btn-group">
+                    <div class="scan-container" id="scan-stickman">
+                        <div class="scan-text" id="scan-text-stickman">🔍 Checking Security...</div>
+                        <div class="scan-bar" id="bar-stickman"></div>
+                    </div>
+                    <button class="download-btn" id="btn-stickman" onclick="runDownloadScan('stickman', 'https://www.mediafire.com/file/x0dit06qv7ny2ug/stickman-party-mod-2.4.9.2-an1.com.apk/file', 'Stickman_Party_MOD.apk')">DOWNLOAD</button>
+                </div>
+            </div>
+
+            <div class="app-card" data-type="game">
+                <div>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/4rs7SIdfTbyUfDguorLclNrcv_b1S6f89S3alw7G90fSg089L64qVv89N87Yg0fSgA=w240-h240-rw1" alt="FRAG">
+                    <div class="app-title">FRAG Pro Shooter</div>
+                    <div class="app-category">Action Game</div>
+                    <div class="app-stats">💾 228 MB | v4.21.0</div>
+                </div>
+                <div class="btn-group">
+                    <div class="scan-container" id="scan-frag">
+                        <div class="scan-text" id="scan-text-frag">🔍 Checking Security...</div>
+                        <div class="scan-bar" id="bar-frag"></div>
+                    </div>
+                    <button class="download-btn" id="btn-frag" onclick="runDownloadScan('frag', 'https://www.mediafire.com/file/hbdr1b9i66ycwcq/frag-pro-shooter-mod-4.21.0-an1.com.apk/file', 'FRAG_Pro_Shooter_MOD.apk')">DOWNLOAD</button>
+                </div>
+            </div>
+
+            <div class="app-card" data-type="game">
+                <div>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/4rs7SIdfTbyUfDguorLclNrcv_b1S6f89S3alw7G90fSg089L64qVv89N87Yg0fSgA=w240-h240-rw2" alt="Tank Stars">
+                    <div class="app-title">Tank Stars MOD</div>
+                    <div class="app-category">Strategy Game</div>
+                    <div class="app-stats">💾 179 MB | v2.19.200</div>
+                </div>
+                <div class="btn-group">
+                    <div class="scan-container" id="scan-tank">
+                        <div class="scan-text" id="scan-text-tank">🔍 Checking Security...</div>
+                        <div class="scan-bar" id="bar-tank"></div>
+                    </div>
+                    <button class="download-btn" id="btn-tank" onclick="runDownloadScan('tank', 'https://www.mediafire.com/file/ys5qhg13thd1twz/tank-stars-mod_2.19.200-an1.com.apk/file', 'Tank_Stars_MOD.apk')">DOWNLOAD</button>
+                </div>
+            </div>
+
+            <div class="app-card" data-type="game">
+                <div>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/4rs7SIdfTbyUfDguorLclNrcv_b1S6f89S3alw7G90fSg089L64qVv89N87Yg0fSgA=w240-h240-rw3" alt="Rope Hero">
+                    <div class="app-title">Rope Hero Vice MOD</div>
+                    <div class="app-category">Open World Game</div>
+                    <div class="app-stats">💾 158 MB | v7.1.6</div>
+                </div>
+                <div class="btn-group">
+                    <div class="scan-container" id="scan-rope">
+                        <div class="scan-text" id="scan-text-rope">🔍 Checking Security...</div>
+                        <div class="scan-bar" id="bar-rope"></div>
+                    </div>
+                    <button class="download-btn" id="btn-rope" onclick="runDownloadScan('rope', 'https://www.mediafire.com/file/u8o96ymykkeofm6/rope-hero-vice-mod_7.1.6-an1.com.apk/file', 'Rope_Hero_Vice_MOD.apk')">DOWNLOAD</button>
+                </div>
+            </div>
+
+            <div class="app-card" data-type="game">
+                <div>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/4rs7SIdfTbyUfDguorLclNrcv_b1S6f89S3alw7G90fSg089L64qVv89N87Yg0fSgA=w240-h240-rw4" alt="Subway Surfers">
+                    <div class="app-title">Subway Surfers MOD</div>
+                    <div class="app-category">Endless Runner</div>
+                    <div class="app-stats">💾 251 MB | v3.63.10</div>
+                </div>
+                <div class="btn-group">
+                    <div class="scan-container" id="scan-subway">
+                        <div class="scan-text" id="scan-text-subway">🔍 Checking Security...</div>
+                        <div class="scan-bar" id="bar-subway"></div>
+                    </div>
+                    <button class="download-btn" id="btn-subway" onclick="runDownloadScan('subway', 'https://www.mediafire.com/file/3cpg8oxf767dng9/subway-surfers-mod-3.63.10-an1.com.apk/file', 'Subway_Surfers_MOD.apk')">DOWNLOAD</button>
+                </div>
+            </div>
+
+            <div class="app-card" data-type="game">
+                <div>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/4rs7SIdfTbyUfDguorLclNrcv_b1S6f89S3alw7G90fSg089L64qVv89N87Yg0fSgA=w240-h240-rw5" alt="Extreme Car">
+                    <div class="app-title">Extreme Car Driving</div>
+                    <div class="app-category">Racing Game</div>
+                    <div class="app-stats">💾 158 MB | v7.11.2</div>
+                </div>
+                <div class="btn-group">
+                    <div class="scan-container" id="scan-extreme">
+                        <div class="scan-text" id="scan-text-extreme">🔍 Checking Security...</div>
+                        <div class="scan-bar" id="bar-extreme"></div>
+                    </div>
+                    <button class="download-btn" id="btn-extreme" onclick="runDownloadScan('extreme', 'https://www.mediafire.com/file/0mth1cvdjra19ec/extreme-car-driving-mod_7.11.2-an1.com.apk/file', 'Extreme_Car_Driving.apk')">DOWNLOAD</button>
+                </div>
+            </div>
+
+            <div class="app-card" data-type="game">
+                <div>
+                    <img class="app-icon" src="https://play-lh.googleusercontent.com/4rs7SIdfTbyUfDguorLclNrcv_b1S6f89S3alw7G90fSg089L64qVv89N87Yg0fSgA=w240-h240-rw6" alt="Turbo Driving">
+                    <div class="app-title">Turbo Driving Racing</div>
+                    <div class="app-category">Racing Game</div>
+                    <div class="app-stats">💾 38.63 MB | v3.3</div>
+                </div>
+                <div class="btn-group">
+                    <div class="scan-container" id="scan-turbo">
+                        <div class="scan-text" id="scan-text-turbo">🔍 Checking Security...</div>
+                        <div class="scan-bar" id="bar-turbo"></div>
+                    </div>
+                    <button class="download-btn" id="btn-turbo" onclick="runDownloadScan('turbo', 'https://www.mediafire.com/file/suszd0nyaiogmkw/turbo-driving-racing-3d-mod_3.3-an1.com.apk/file', 'Turbo_Driving_Racing.apk')">DOWNLOAD</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="live-counter-box">
+            🟢 Live Traffic: <span id="liveCount">142</span> online
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-title">DM FOR APP REQUESTS & CONTACT OWNER</div>
+        <a href="https://www.instagram.com/priyanshu_0014x_?igsh=Z2ZkeW95dWVxcTRm" target="_blank" class="social-btn">
+            <img class="social-icon" src="https://img.icons8.com/color/48/instagram-new.png" alt="Instagram">
+            FOLLOW ON INSTAGRAM
+        </a>
+    </footer>
+
+    <script src="https://pl29535110.effectivecpmnetwork.com/fc/66/84/fc6684439a59a104f87b460e38
