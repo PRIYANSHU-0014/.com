@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>// student.sec — Sultanpur, UP</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+  :root{
+    --bg:        #0D0B1E;
+    --bg-panel:  #161335;
+    --bg-line:   #2A2552;
+    --cyan:      #00F0FF;
+    --magenta:   #FF2E92;
+    --yellow:    #FFD23F;
+    --text:      #F5F3FF;
+    --muted:     #9D97C4;
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Space Grotesk', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body{
+    margin:0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  /* background grid texture */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 42px 42px;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .wrap{ max-width: 880px; margin:0 auto; padding: 0 24px; position:relative; z-index:1; }
+
+  /* ===== NAV ===== */
+  nav{
+    position:sticky; top:0; z-index:10;
+    backdrop-filter: blur(10px);
+    background: rgba(13,11,30,0.75);
+    border-bottom:1px solid var(--bg-line);
+  }
+  nav .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    height:64px; font-family:var(--mono); font-size:14px;
+  }
+  nav .logo{ color: var(--cyan); font-weight:800; letter-spacing:1px; }
+  nav .logo span{ color: var(--muted); }
+  nav ul{ display:flex; gap:28px; list-style:none; margin:0; padding:0; }
+  nav a{ color: var(--muted); text-decoration:none; transition:color .2s; }
+  nav a:hover{ color: var(--yellow); }
+
+  /* ===== HERO / TERMINAL ===== */
+  header.hero{ padding: 70px 0 50px; }
+  .eyebrow{
+    font-family:var(--mono); color:var(--magenta); font-size:13px;
+    letter-spacing: 3px; text-transform:uppercase; margin-bottom:14px;
+  }
+  h1{
+    font-family:var(--sans); font-weight:700;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height:1.05; margin:0 0 10px;
+  }
+  h1 .accent{ color: var(--cyan); }
+  .tagline{ color: var(--muted); font-size:18px; max-width:520px; margin-bottom:28px; }
+
+  .x-link{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:14px; font-weight:700;
+    color: var(--bg); background: var(--cyan);
+    padding:10px 18px; border-radius:8px; text-decoration:none;
+    margin-bottom:36px; transition: background .2s, transform .2s;
+  }
+  .x-link:hover{ background: var(--magenta); color: var(--text); transform: translateY(-2px); }
+  .x-link span{ font-size:16px; }
+
+  .terminal{
+    background: var(--bg-panel);
+    border:1px solid var(--bg-line);
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow: 0 20px 60px -20px rgba(0,240,255,0.15);
+  }
+  .terminal-bar{
+    display:flex; align-items:center; gap:8px;
+    padding:10px 14px; background:#1D1A40; border-bottom:1px solid var(--bg-line);
+  }
+  .dot{ width:10px; height:10px; border-radius:50%; }
+  .dot.r{ background:var(--magenta); }
+  .dot.y{ background:var(--yellow); }
+  .dot.g{ background:var(--cyan); }
+  .terminal-title{
+    margin-left:8px; font-family:var(--mono); font-size:12px; color:var(--muted);
+  }
+  .terminal-body{
+    padding:22px 20px; font-family:var(--mono); font-size:14px; min-height:170px;
+  }
+  .terminal-body .line{ display:block; white-space:pre-wrap; opacity:0; }
+  .terminal-body .prompt{ color: var(--cyan); }
+  .terminal-body .out{ color: var(--text); }
+  .terminal-body .accentline{ color: var(--yellow); }
+  .cursor{
+    display:inline-block; width:8px; height:16px; background:var(--cyan);
+    vertical-align:middle; animation: blink 1s step-end infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  /* ===== SECTIONS ===== */
+  section{ padding: 60px 0; border-top:1px solid var(--bg-line); }
+  .section-head{
+    display:flex; align-items:baseline; gap:12px; margin-bottom:28px;
+  }
+  .section-head .tag{
+    font-family:var(--mono); color:var(--magenta); font-size:13px;
+  }
+  .section-head h2{
+    font-size: clamp(1.6rem, 4vw, 2.2rem); margin:0; font-weight:700;
+  }
+
+  .about p{ color: var(--muted); max-width: 620px; font-size:16px; }
+  .about strong{ color: var(--text); }
+
+  .edu-card{
+    background: var(--bg-panel); border:1px solid var(--bg-line);
+    border-radius:10px; padding:22px 24px; display:flex; gap:20px; align-items:flex-start;
+  }
+  .edu-card .badge{
+    font-family:var(--mono); font-size:12px; color: var(--bg);
+    background: var(--yellow); padding:4px 10px; border-radius:6px; font-weight:700;
+    white-space:nowrap;
+  }
+  .edu-card h3{ margin:0 0 4px; font-size:18px; }
+  .edu-card p{ margin:0; color:var(--muted); font-size:14px; }
+
+  /* learning grid */
+  .grid{
+    display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap:16px;
+  }
+  .module{
+    background: var(--bg-panel); border:1px solid var(--bg-line);
+    border-radius:10px; padding:20px; transition: border-color .2s, transform .2s;
+  }
+  .module:hover{ border-color: var(--cyan); transform: translateY(-3px); }
+  .module .num{
+    font-family:var(--mono); color:var(--muted); font-size:12px; margin-bottom:8px; display:block;
+  }
+  .module h3{ margin:0 0 6px; font-size:16px; }
+  .module p{ margin:0; color:var(--muted); font-size:13px; }
+
+  /* ethics */
+  .ethics{
+    background: linear-gradient(135deg, rgba(0,240,255,0.08), rgba(255,46,146,0.08));
+    border:1px solid var(--bg-line); border-radius:12px; padding:28px;
+  }
+  .ethics .tag{ color: var(--cyan); }
+  .ethics p{ color: var(--text); margin:0; max-width:640px; }
+  .ethics .label{
+    font-family:var(--mono); font-size:12px; color:var(--yellow);
+    letter-spacing:2px; display:block; margin-bottom:10px;
+  }
+
+  footer{ padding: 40px 0 60px; }
+  footer .wrap{
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:16px;
+    font-family:var(--mono); font-size:13px; color:var(--muted);
+  }
+  footer .pulse{
+    display:inline-flex; align-items:center; gap:8px;
+  }
+  footer .pulse .led{
+    width:8px; height:8px; border-radius:50%; background:var(--cyan);
+    box-shadow:0 0 8px var(--cyan); animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse{ 0%,100%{ opacity:1; } 50%{ opacity:.3; } }
+
+  @media (prefers-reduced-motion: reduce){
+    .terminal-body .line{ opacity:1 !important; animation:none !important; }
+    .cursor, footer .pulse .led{ animation:none; }
+  }
+
+  /* reveal on scroll */
+  .reveal{ opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity:1; transform:none; }
+
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--yellow); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="logo">root<span>@</span>sultanpur<span>:</span>~</div>
+    <ul>
+      <li><a href="#about">about</a></li>
+      <li><a href="#education">education</a></li>
+      <li><a href="#learning">learning</a></li>
+      <li><a href="#ethics">ethics</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">// class_9_student.exe</div>
+    <h1>Hi, I'm <span class="accent">Priyanshu</span> —<br>future cybersecurity pro.</h1>
+    <p class="eyebrow" style="color:var(--cyan); letter-spacing:2px;">Ethical Hacker | Cybersecurity Student | Building Priyanshu Exploit</p>
+    <p class="tagline">15 years old, studying in Class 9 at Maharana Pratap Inter College, Sultanpur, Uttar Pradesh — learning how computers, networks, and the internet really work, one layer at a time.</p>
+    <a href="https://x.com/PriyanshuExploi" target="_blank" rel="noopener noreferrer" class="x-link">
+      <span>𝕏</span> Follow on X — @PriyanshuExploi
+    </a>
+
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="terminal-title">whoami.sh</span>
+      </div>
+      <div class="terminal-body" id="termBody"></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <span class="tag">01</span>
+      <h2>About me</h2>
+    </div>
+    <p>I'm curious about how things work behind the screen — how websites talk to servers, how networks pass data around, and how systems stay (or don't stay) secure. That curiosity is pulling me toward <strong>ethical hacking and cybersecurity</strong> as a future career.</p>
+    <p>Right now I'm focused on building a strong foundation: school subjects in Class 9, plus self-study on the basics of computers, the internet, and digital safety — step by step, the right way.</p>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <span class="tag">02</span>
+      <h2>Education</h2>
+    </div>
+    <div class="edu-card">
+      <span class="badge">Class 9</span>
+      <div>
+        <h3>Maharana Pratap Inter College</h3>
+        <p>Sultanpur, Uttar Pradesh, India</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="learning">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <span class="tag">03</span>
+      <h2>What I'm learning</h2>
+    </div>
+    <div class="grid">
+      <div class="module">
+        <span class="num">module_01</span>
+        <h3>Computer & Internet Basics</h3>
+        <p>How devices, browsers, and websites actually communicate with each other.</p>
+      </div>
+      <div class="module">
+        <span class="num">module_02</span>
+        <h3>Networking Fundamentals</h3>
+        <p>IP addresses, routers, and how data travels across a network.</p>
+      </div>
+      <div class="module">
+        <span class="num">module_03</span>
+        <h3>Digital Safety & Cyber Hygiene</h3>
+        <p>Strong passwords, spotting scams, and staying safe online every day.</p>
+      </div>
+      <div class="module">
+        <span class="num">module_04</span>
+        <h3>Intro to Ethical Hacking</h3>
+        <p>Understanding how security professionals find and fix weaknesses — legally and responsibly.</p>
+      </div>
+      <div class="module">
+        <span class="num">module_05</span>
+        <h3>Linux Basics</h3>
+        <p>Getting comfortable with the command line, one command at a time.</p>
+      </div>
+      <div class="module">
+        <span class="num">module_06</span>
+        <h3>Beginner CTF Challenges</h3>
+        <p>Solving fun, safe puzzle-style challenges to practice security thinking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ethics">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <span class="tag">04</span>
+      <h2>My code</h2>
+    </div>
+    <div class="ethics">
+      <span class="label">// code_of_ethics.txt</span>
+      <p>Real cybersecurity skills are used to <strong>protect</strong> people, not harm them. I'm learning to understand systems so I can help keep them — and the people who use them — safe, always with permission and always within the law.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; 2026 — built with curiosity in Sultanpur, UP.</span>
+    <span class="pulse"><span class="led"></span> status: learning_mode --verbose</span>
+  </div>
+</footer>
+
+<script>
+  // Typing terminal effect
+  const lines = [
+    { type: 'prompt', text: '$ whoami' },
+    { type: 'out',    text: 'class_9_student @ Maharana Pratap Inter College' },
+    { type: 'out',    text: 'location : Sultanpur, Uttar Pradesh, India' },
+    { type: 'out',    text: 'age      : 15' },
+    { type: 'accent', text: 'focus    : ethical hacking & cybersecurity fundamentals' },
+    { type: 'out',    text: 'status   : learning_mode --verbose' },
+  ];
+
+  const body = document.getElementById('termBody');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function buildLine(item){
+    const el = document.createElement('span');
+    el.className = 'line ' + item.type;
+    el.textContent = item.text;
+    return el;
+  }
+
+  if (reduceMotion) {
+    lines.forEach(item => body.appendChild(buildLine(item)));
+  } else {
+    let i = 0;
+    function typeNext(){
+      if (i >= lines.length) return;
+      const item = lines[i];
+      const el = document.createElement('span');
+      el.className = 'line ' + item.type;
+      el.style.opacity = 1;
+      body.appendChild(el);
+      let charIndex = 0;
+      const speed = 18;
+      function typeChar(){
+        if (charIndex <= item.text.length){
+          el.textContent = item.text.slice(0, charIndex);
+          charIndex++;
+          setTimeout(typeChar, speed);
+        } else {
+          i++;
+          setTimeout(typeNext, 220);
+        }
+      }
+      typeChar();
+    }
+    setTimeout(typeNext, 300);
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
