@@ -1,8 +1,8 @@
-# <span style="color:green">Priyanshu Exploit - Portfolio</span>
+# 🟢 Priyanshu Exploit - Portfolio
 
 Namaste! Main **Priyanshu Exploit** hoon. Main ek Cybersecurity student aur Ethical Hacker hoon. 🛡️
 
-## <span style="color:cyan">Mere Baare Mein</span>
+## 🔵 Mere Baare Mein
 
 * **Naam:** Priyanshu
 * **Pehchan:** Ethical Hacker & Cybersecurity Enthusiast
@@ -11,11 +11,11 @@ Namaste! Main **Priyanshu Exploit** hoon. Main ek Cybersecurity student aur Ethi
 * **Website:** [Priyanshu Exploit Official](https://priyanshu31460014.github.io/exploit/)
 * **X (Twitter):** [Follow me on X](https://x.com/PriyanshuExploi)
 
-## <span style="color:orange">Cybersecurity Goal</span>
+## 🟠 Cybersecurity Goal
 
 Main cybersecurity ke duniya mein naye concepts aur ethical hacking techniques seekh raha hoon. Mera maqsad internet aur network systems ko secure banana aur digital safety ke baare mein awareness failana hai.
 
-## <span style="color:red">Meri Skills</span>
+## 🔴 Meri Skills
 
 * Ethical Hacking Fundamentals
 * Web Development
