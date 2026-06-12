@@ -6,11 +6,11 @@ Namaste! Main **Priyanshu Exploit** hoon. Main ek Cybersecurity student aur Ethi
 
 * **Naam:** Priyanshu
 * **Pehchan:** Ethical Hacker & Cybersecurity Enthusiast
-* **Education:** Class 9th, Maharana Pratap School
+* **Education:** Class 9th, Maharana Pratap inter college 
 * **Location:** Sultanpur, Uttar Pradesh, India
 * **Website:** [my Official website](https://priyanshu31460014.github.io/exploit/)
 * **X (Twitter):** [Follow me on XTwitter](https://x.com/PriyanshuExploi)
-  * **Facebook:** [Follow me on Facebook](https://www.facebook.com/share/1HiSYUSAwT/)
+* **Facebook:** [Follow me on Facebook](https://www.facebook.com/share/1HiSYUSAwT/)
 ## 🟠 Cybersecurity Goal
 
 Main cybersecurity ke duniya mein naye concepts aur ethical hacking techniques seekh raha hoon. Mera maqsad internet aur network systems ko secure banana aur digital safety ke baare mein awareness failana hai.
