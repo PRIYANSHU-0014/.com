@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priyanshu Exploit — Ethical Hacker & Cybersecurity Student</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #05080a;
+    --panel: #0b1412;
+    --line: #16221f;
+    --line-soft: #101a17;
+    --green: #3ef2a3;
+    --green-dim: #1f8a5a;
+    --amber: #ffb454;
+    --text: #d8e8e0;
+    --text-dim: #7d968c;
+    --text-faint: #4d635b;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'JetBrains Mono', monospace;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--green); color:#04140b;}
+  a{color:var(--green); text-decoration:none;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--amber); outline-offset:3px;}
+
+  .noise{
+    pointer-events:none; position:fixed; inset:0; z-index:60;
+    background:repeating-linear-gradient(to bottom, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 3px);
+    mix-blend-mode:overlay;
+  }
+
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px;}
+  @media (max-width:640px){ .wrap{padding:0 18px;} }
+
+  nav{
+    position:sticky; top:0; z-index:40;
+    background:rgba(5,8,10,0.82);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .navrow{
+    max-width:1040px; margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{
+    font-weight:700; color:#fff; font-size:15px; letter-spacing:0.01em;
+    display:flex; align-items:center; gap:8px;
+  }
+  .brand .dotpx{width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 10px var(--green);}
+  .navlinks{display:flex; gap:28px; font-size:13px;}
+  .navlinks a{color:var(--text-dim);}
+  .navlinks a:hover{color:var(--green);}
+  @media (max-width:560px){ .navlinks{display:none;} }
+
+  .hero{ padding:88px 0 70px; position:relative; overflow:hidden; }
+  .hero::before{
+    content:"";
+    position:absolute; inset:-20% -10% auto -10%; height:500px;
+    background:radial-gradient(ellipse at 30% 0%, rgba(62,242,163,0.10), transparent 60%);
+    pointer-events:none;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--amber);
+    border:1px solid rgba(255,180,84,0.3); background:rgba(255,180,84,0.05);
+    padding:6px 12px; border-radius:20px;
+  }
+  .eyebrow .pulse{width:6px; height:6px; border-radius:50%; background:var(--amber); animation:pulse 1.8s ease infinite;}
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+  h1.title{
+    font-family:'Space Grotesk', sans-serif;
+    font-size:clamp(34px, 6vw, 58px);
+    font-weight:700; color:#fff; margin:22px 0 6px;
+    letter-spacing:-0.01em; line-height:1.05;
+  }
+  h1.title span{color:var(--green);}
+  .role-line{ font-size:clamp(15px, 2vw, 18px); color:var(--text-dim); margin:0 0 28px; max-width:560px; }
+  .role-line b{color:var(--text);}
+
+  .hero-meta{ display:flex; flex-wrap:wrap; gap:22px; margin-top:8px; font-size:13.5px; color:var(--text-dim); }
+  .hero-meta span{display:flex; align-items:center; gap:7px;}
+  .hero-meta b{color:var(--text);}
+
+  .hero-actions{margin-top:34px; display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:inherit; font-size:13.5px; font-weight:600;
+    padding:12px 22px; border-radius:8px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:8px;
+    transition:transform .15s, border-color .15s, background .15s;
+  }
+  .btn-primary{ background:var(--green); color:#04140b; border:1px solid var(--green); }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 8px 24px -8px rgba(62,242,163,0.5);}
+  .btn-ghost{ background:transparent; color:var(--text); border:1px solid var(--line); }
+  .btn-ghost:hover{border-color:var(--green-dim); color:var(--green); transform:translateY(-2px);}
+
+  .term{
+    margin-top:52px; background:var(--panel); border:1px solid var(--line);
+    border-radius:12px; box-shadow:0 40px 90px -40px rgba(0,0,0,0.9); overflow:hidden;
+  }
+  .term-bar{ display:flex; align-items:center; gap:8px; padding:12px 16px; background:#080d0c; border-bottom:1px solid var(--line); }
+  .term-bar .d{width:10px; height:10px; border-radius:50%;}
+  .term-bar .d.r{background:#ff5f56;} .term-bar .d.y{background:#ffbd2e;} .term-bar .d.g{background:#27c93f;}
+  .term-bar .path{margin-left:auto; margin-right:auto; transform:translateX(-13px); font-size:12px; color:var(--text-faint);}
+  .term-body{padding:24px 26px 28px; font-size:13.5px;}
+  .term-body .ln{color:var(--text-dim); margin:0 0 5px;}
+  .term-body .ln .p{color:var(--green);}
+  .term-body .out{color:var(--text); margin:0 0 5px;}
+  .term-body .out .k{color:var(--amber);}
+  .cursor-blink{display:inline-block; width:7px; height:13px; background:var(--green); vertical-align:middle; animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+
+  section{padding:70px 0;}
+  .sec-head{margin-bottom:34px;}
+  .sec-num{ font-size:12px; color:var(--green); letter-spacing:0.1em; display:block; margin-bottom:10px; }
+  h2.sec-title{ font-family:'Space Grotesk', sans-serif; font-size:clamp(24px, 3.4vw, 32px); color:#fff; font-weight:700; margin:0; }
+  .sec-sub{color:var(--text-dim); font-size:14.5px; margin-top:10px; max-width:560px;}
+
+  .divider{height:1px; background:linear-gradient(to right, var(--line), transparent); border:none; margin:0;}
+
+  .about-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:32px; align-items:start;}
+  @media (max-width:760px){ .about-grid{grid-template-columns:1fr;} }
+  .about-text p{color:var(--text-dim); font-size:15px; margin:0 0 16px;}
+  .about-text b{color:var(--text);}
+
+  .info-card{ background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:22px 24px; }
+  .info-card .row{display:flex; justify-content:space-between; padding:11px 0; border-bottom:1px dashed var(--line-soft); font-size:13.5px;}
+  .info-card .row:last-child{border-bottom:none;}
+  .info-card .row .k{color:var(--text-faint);}
+  .info-card .row .v{color:var(--text); text-align:right; font-weight:500;}
+
+  .skills-grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:16px;}
+  @media (max-width:760px){ .skills-grid{grid-template-columns:1fr 1fr;} }
+  @media (max-width:480px){ .skills-grid{grid-template-columns:1fr;} }
+  .skill-card{ background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:20px; transition:border-color .2s, transform .2s; }
+  .skill-card:hover{border-color:var(--green-dim); transform:translateY(-3px);}
+  .skill-card .num{font-size:11px; color:var(--text-faint); letter-spacing:0.08em;}
+  .skill-card h3{font-family:'Space Grotesk', sans-serif; color:#fff; font-size:16px; margin:8px 0 6px; font-weight:600;}
+  .skill-card p{color:var(--text-dim); font-size:13.5px; margin:0;}
+
+  .tips{display:flex; flex-direction:column; gap:14px;}
+  .tip{
+    background:var(--panel); border:1px solid var(--line); border-left:3px solid var(--green);
+    border-radius:8px; padding:18px 20px; display:grid; grid-template-columns:38px 1fr; gap:16px; align-items:start;
+  }
+  .tip .idx{font-family:'Space Grotesk', sans-serif; color:var(--green); font-weight:700; font-size:15px;}
+  .tip h4{margin:0 0 6px; color:#fff; font-size:14.5px; font-weight:600;}
+  .tip p{margin:0; color:var(--text-dim); font-size:13.8px;}
+
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media (max-width:640px){ .contact-grid{grid-template-columns:1fr;} }
+  .contact-card{
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:22px; display:flex; align-items:center; gap:16px; transition:border-color .2s, transform .2s;
+  }
+  .contact-card:hover{border-color:var(--green-dim); transform:translateY(-3px);}
+  .contact-card .icon{
+    width:44px; height:44px; border-radius:10px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center;
+    background:rgba(62,242,163,0.08); color:var(--green); font-size:18px;
+  }
+  .contact-card .label{font-size:11px; color:var(--text-faint); text-transform:uppercase; letter-spacing:0.06em;}
+  .contact-card .handle{color:#fff; font-size:15px; font-weight:600; margin-top:2px;}
+  .contact-card .arrow{margin-left:auto; color:var(--text-faint); transition:transform .2s, color .2s;}
+  .contact-card:hover .arrow{transform:translateX(4px); color:var(--green);}
+
+  footer{ border-top:1px solid var(--line-soft); padding:36px 0 48px; text-align:center; color:var(--text-faint); font-size:12.5px; }
+  footer .fc{display:inline-block; width:7px; height:13px; background:var(--green); vertical-align:middle; margin-left:4px; animation:blink 1s step-end infinite;}
+
+  @media (prefers-reduced-motion: reduce){
+    .cursor-blink, footer .fc, .eyebrow .pulse{animation:none;}
+  }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+
+<nav>
+  <div class="navrow">
+    <div class="brand"><span class="dotpx"></span>priyanshu.exploit</div>
+    <div class="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Focus Areas</a>
+      <a href="#cyber">Cyber Tips</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <section class="hero">
+    <span class="eyebrow"><span class="pulse"></span>Available &amp; learning</span>
+    <h1 class="title">Priyanshu <span>Exploit</span></h1>
+    <p class="role-line">Ethical Hacker in training and <b>Cybersecurity Student</b> — currently in <b>Class 9</b>, building a foundation in how systems break and how to defend them, responsibly.</p>
+
+    <div class="hero-meta">
+      <span>🎓 <b>Maharana Pratap Inter College</b></span>
+      <span>📍 <b>Sultanpur, Uttar Pradesh, India — 227812</b></span>
+    </div>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://youtube.com/@priyanshuexploit.io9?si=BIakzku43h-NSIFv" target="_blank" rel="noopener">▶ Watch on YouTube</a>
+      <a class="btn btn-ghost" href="https://x.com/priyanshuexploi" target="_blank" rel="noopener">𝕏 Follow on X</a>
+    </div>
+
+    <div class="term">
+      <div class="term-bar">
+        <span class="d r"></span><span class="d y"></span><span class="d g"></span>
+        <span class="path">priyanshu@sultanpur:~</span>
+      </div>
+      <div class="term-body">
+        <p class="ln"><span class="p">priyanshu@kali</span>:~$ whoami</p>
+        <p class="out">priyanshu_exploit — cybersecurity student, class 9</p>
+        <p class="ln"><span class="p">priyanshu@kali</span>:~$ cat mission.txt</p>
+        <p class="out"><span class="k">"Learn to break things, so I can learn to protect them."</span><span class="cursor-blink"></span></p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="about">
+    <div class="sec-head">
+      <span class="sec-num">01 · About</span>
+      <h2 class="sec-title">Who I Am</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I'm a school student with a growing interest in <b>cybersecurity and ethical hacking</b>. My goal isn't to break things for the sake of it — it's to understand how vulnerabilities work well enough to help fix them.</p>
+        <p>I'm early in this journey, learning consistently, and sharing what I pick up along the way through my YouTube channel and posts on X. Everything I do is guided by one rule: <b>test only what you're authorized to test.</b></p>
+      </div>
+      <div class="info-card">
+        <div class="row"><span class="k">Name</span><span class="v">Priyanshu</span></div>
+        <div class="row"><span class="k">Alias</span><span class="v">Priyanshu Exploit</span></div>
+        <div class="row"><span class="k">Class</span><span class="v">9th Standard</span></div>
+        <div class="row"><span class="k">School</span><span class="v">Maharana Pratap Inter College</span></div>
+        <div class="row"><span class="k">Location</span><span class="v">Sultanpur, UP, India</span></div>
+        <div class="row"><span class="k">PIN Code</span><span class="v">227812</span></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="skills">
+    <div class="sec-head">
+      <span class="sec-num">02 · Focus</span>
+      <h2 class="sec-title">What I'm Learning</h2>
+      <p class="sec-sub">Areas I'm actively studying as I build my foundation in cybersecurity.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card"><span class="num">01</span><h3>Ethical Hacking Basics</h3><p>Core concepts of penetration testing, reconnaissance, and responsible disclosure.</p></div>
+      <div class="skill-card"><span class="num">02</span><h3>Networking Fundamentals</h3><p>How data moves — IP addressing, protocols, and common network vulnerabilities.</p></div>
+      <div class="skill-card"><span class="num">03</span><h3>Linux &amp; Terminal</h3><p>Getting comfortable with command-line tools used across security workflows.</p></div>
+      <div class="skill-card"><span class="num">04</span><h3>Web Security</h3><p>Understanding how websites can be misconfigured, and how to secure them.</p></div>
+      <div class="skill-card"><span class="num">05</span><h3>Security Awareness</h3><p>Recognizing phishing, social engineering, and everyday digital risks.</p></div>
+      <div class="skill-card"><span class="num">06</span><h3>Content Creation</h3><p>Sharing what I learn through YouTube and X to teach others along the way.</p></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="cyber">
+    <div class="sec-head">
+      <span class="sec-num">03 · Awareness</span>
+      <h2 class="sec-title">Cybersecurity Corner</h2>
+      <p class="sec-sub">A few practical tips I follow and share with others.</p>
+    </div>
+    <div class="tips">
+      <div class="tip"><span class="idx">01</span><div><h4>Strong, unique passwords</h4><p>Use long passphrases (12+ characters) mixing words, numbers, and symbols. Never reuse a password across accounts.</p></div></div>
+      <div class="tip"><span class="idx">02</span><div><h4>Turn on 2FA everywhere</h4><p>Two-factor authentication is the single easiest way to stop most account takeovers — enable it on email, banking, and social apps.</p></div></div>
+      <div class="tip"><span class="idx">03</span><div><h4>Spot phishing attempts</h4><p>Be cautious of urgent messages asking you to click links or share details. Always check the sender before trusting a message.</p></div></div>
+      <div class="tip"><span class="idx">04</span><div><h4>Hack ethically, always</h4><p>Only test systems you own or have explicit written permission to test. Unauthorized access is illegal, regardless of intent.</p></div></div>
+      <div class="tip"><span class="idx">05</span><div><h4>Keep everything updated</h4><p>Most real-world breaches exploit old, unpatched software. Regular updates close known security gaps.</p></div></div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="contact">
+    <div class="sec-head">
+      <span class="sec-num">04 · Contact</span>
+      <h2 class="sec-title">Let's Connect</h2>
+      <p class="sec-sub">Follow along as I learn and share cybersecurity content.</p>
+    </div>
+    <div class="contact-grid">
+      <a class="contact-card" href="https://youtube.com/@priyanshuexploit.io9?si=BIakzku43h-NSIFv" target="_blank" rel="noopener">
+        <div class="icon">▶</div>
+        <div><div class="label">YouTube</div><div class="handle">@priyanshuexploit.io9</div></div>
+        <span class="arrow">→</span>
+      </a>
+      <a class="contact-card" href="https://x.com/priyanshuexploi" target="_blank" rel="noopener">
+        <div class="icon">𝕏</div>
+        <div><div class="label">Twitter / X</div><div class="handle">@priyanshuexploi</div></div>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  © 2026 Priyanshu Exploit · Built with curiosity, not exploits<span class="fc"></span>
+</footer>
+
+</body>
+</html>
