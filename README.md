@@ -27,10 +27,15 @@ I am ! Priyanshu Exploit .   Cybersecurity student && Ethical Hacker . 🛡️
 I want to learn how computer systems, websites, networks, and applications can be protected against security threats.*
 
  * **my Skills**
-   
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=html" width="50" />
+  <img src="https://skillicons.dev/icons?i=css" width="50" />
+  <img src="https://skillicons.dev/icons?i=python" width="50" />
+  <img src="https://skillicons.dev/icons?i=github" width="50" />
+  <img src="https://skillicons.dev/icons?i=java" width="50" />
+  <img src="https://skillicons.dev/icons?i=kali" width="50" />
+  <img src="https://skillicons.dev/icons?i=linux" width="50" />
+</p>
 _________________________________________________
-Ethical Hacking Fundamentals
-Web Development
-Network Security Basics
 
 
