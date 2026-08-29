@@ -1,33 +1,34 @@
 # 🛡️ PRIYANSHU EXPLOIT
 
 ![PRIYANSHU EXPLOIT](banner.gif)
-🟢 Priyanshu Exploit - Portfolio
 
-Namaste! Main Priyanshu Exploit hoon. Main ek Cybersecurity student aur Ethical Hacker hoon. 🛡️
+I am ! Priyanshu Exploit .   Cybersecurity student && Ethical Hacker . 🛡️
+ 
+ * **about me** 
 
-🔵 Mere Baare Mein
+* **Naam**: Priyanshu kori
 
-Naam: Priyanshu
+* **Pehchan**: Ethical Hacker & Cybersecurity Enthusiast
 
-Pehchan: Ethical Hacker & Cybersecurity Enthusiast
+* **Education**: Class 9th, Maharana Pratap inter college
 
-Education: Class 9th, Maharana Pratap inter college
+* **Location**: Sultanpur, Uttar Pradesh, India
 
-Location: Sultanpur, Uttar Pradesh, India
+* **Website**: my Official website[https://priyanshu-0014.github.io/.com/]
 
-Website: my Official website
+* **X (Twitter)**: Follow me on XTwitter[https://x.com/priyanshuexploi]
 
-X (Twitter): Follow me on XTwitter
-
-Facebook: Follow me on Facebook
+* **YouTube**: suscribe me on YouTube [https://youtube.com/@priyanshuexploit.io9?si=N9YsaR_Hhk0a3_wA]
 
 
-🟠 Cybersecurity Goal
+* **Cybersecurity Goal**
 
-Main cybersecurity ke duniya mein naye concepts aur ethical hacking techniques seekh raha hoon. Mera maqsad internet aur network systems ko secure banana aur digital safety ke baare mein awareness failana hai.
+**My goal is to build a strong career in cybersecurity and continuously improve my knowledge of ethical hacking and digital security.
+I want to learn how computer systems, websites, networks, and applications can be protected against security threats.*
 
-🔴 Meri Skills
-
+ * **my Skills**
+   
+_________________________________________________
 Ethical Hacking Fundamentals
 Web Development
 Network Security Basics
