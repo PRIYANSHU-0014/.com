@@ -2,7 +2,7 @@
 
 hello! I am  **Priyanshu Exploit** . Cybersecurity student & Ethical Hacker . 🛡️
 
-## 🔵 Mere Baare Mein
+## 🧑‍💻 About Me
 
 * **Naam:** Priyanshu
 * **Pehchan:** Ethical Hacker & Cybersecurity Enthusiast
@@ -19,6 +19,15 @@ hello! I am  **Priyanshu Exploit** . Cybersecurity student & Ethical Hacker . �
 To learn cybersecurity and ethical hacking responsibly, build secure websites, and spread awareness about digital safety.
 
 ## 🔴 Meri Skills
+## ⚡ Skills
+
+<p align="center">
+
+<img src="https://skillicons.dev/icons?i=html,css,js,python,git,github,vscode,linux" />
+
+</p>
+
+---
 
 * Ethical Hacking Fundamentals
 * Web Development
