@@ -1,4 +1,4 @@
-# 🟢 Priyanshu Exploit - Portfolio
+#  Priyanshu Exploit - Portfolio
 
 hello! I am  **Priyanshu Exploit** . Cybersecurity student & Ethical Hacker . 🛡️
 
@@ -18,7 +18,6 @@ hello! I am  **Priyanshu Exploit** . Cybersecurity student & Ethical Hacker . �
 
 To learn cybersecurity and ethical hacking responsibly, build secure websites, and spread awareness about digital safety.
 
-## 🔴 Meri Skills
 ## ⚡ Skills
 
 <p align="center">
@@ -28,7 +27,7 @@ To learn cybersecurity and ethical hacking responsibly, build secure websites, a
 </p>
 
 ---
-
+__________________________________________
 * Ethical Hacking Fundamentals
 * Web Development
 * Network Security Basics
